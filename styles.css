@@ -5,14 +5,14 @@
 }
 
 body {
-  color: #F4F6FE;
+  color: #f4f6fe;
   text-shadow: 2px 2px 4px #000000;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #D6D8DD;
+  background-color: #d6d8dd;
   text-align: center;
 }
 
@@ -20,7 +20,6 @@ h1 {
   font-size: 80px;
   font-stretch: ultra-expanded;
   letter-spacing: 1px;
-
 }
 
 h2 {
@@ -40,51 +39,40 @@ p {
 }
 
 .game-board {
-
-  /* background-color: #3C3F49; */
-  background: linear-gradient(to bottom, #3C3F49, #53565C), fixed;
-
+  background: linear-gradient(to bottom, #3c3f49, #53565c), fixed;
   text-align: center;
-    /* height: 800px; */
   margin: 25px;
   padding: 25px;
-  border: #F4F6FE 4px solid;
-
+  border: #f4f6fe 4px solid;
   border-radius: 25px;
-
 }
 
 .sub-heading {
-
 }
 
 .container {
-  background-color: #A5A8B0;
+  background-color: #a5a8b0;
   padding: 20px;
   margin-top: 30px;
-  border: #F4F6FE 1px solid;
+  border: #f4f6fe 1px solid;
   border-radius: 25px;
-
 }
 
 .player-container {
   display: flex;
   flex-direction: row;
-
   justify-content: space-around;
-  /* margin:auto; */
-  /* padding: 25px; */
 }
 
 .p-one {
-  margin-bottom: 30px
+  margin-bottom: 30px;
 }
 .p-two {
-  margin-top: 30px
+  margin-top: 30px;
 }
 
 .game-grid {
-  background: #A5A8B0;
+  background: #a5a8b0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -95,7 +83,7 @@ p {
 .game-square {
   height: 100px;
   weight: 100px;
-  background-color: #3C3F49;
+  background-color: #3c3f49;
   cursor: pointer;
   transition: 0.2s;
   font-size: 100px;
@@ -103,19 +91,25 @@ p {
 }
 
 .player-one-token {
-  color: #FAB6C9;
+  color: #f5ecef;
 }
 
 .player-two-token {
-  color: #9ACDDE;
+  color: #e3f4fb;
 }
 
 .game-square:hover {
-  background-color: #777A84;
+  background-color: #777a84;
 }
 
 @keyframes highlight {
-  0% {color: #F4F6FE;}
-  50% {color: #FFF19A;}
-  100% {color: #F4F6FE;}
+  0% {
+    color: #f4f6fe;
+  }
+  50% {
+    color: #fff19a;
+  }
+  100% {
+    color: #f4f6fe;
+  }
 }
