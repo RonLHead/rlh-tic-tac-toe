@@ -9,9 +9,9 @@ class Game {
     this.draw = false;
   }
 
-  whoseTurn(player) {
-
-  }
+  // whoseTurn(player) {
+  //
+  // }
 
   winConditions() {
 
