@@ -26,26 +26,29 @@ var player1 = new Player("p1", "X", 0)
 var player2 = new Player("p2", "O", 0)
 
 var game = new Game(player1, player2)
-console.log(game.player1Turn)
+
 function handleClick(e) {
+  e.preventDefault()
   var location = e.target;
-  // console.log(location)
-  // console.log(box1)
-  // console.log(game.player1Turn)
+
   if(game.player1Turn) {
     location.innerHTML += `
     <article class="game-square player-one-token"
     id="${e.target.id}">
     ${player1.token}</article>`
-    // console.log(player1.token)
-    game.player1Turn = !game.player1Turn;
-  } else if(game.playe2Turn){
+    whoseTurn.innerHTML = `
+    <h2 class="sub-heading bounce" id="whoseTurn">It's Player Two's Turn!</h2>`
+    game.player1Turn = false;
+    game.player2Turn = true;
+  } else if(game.player2Turn) {
     location.innerHTML += `
     <article class="game-square player-two-token"
     id="${e.target.id}">
     ${player2.token}</article>`
+    whoseTurn.innerHTML = `
+    <h2 class="sub-heading bounce" id="whoseTurn">It's Player One's Turn!</h2>`
     console.log(player1.token)
-    game.player2Turn = !game.player2Turn;
+    game.player2Turn = false;
+    game.player1Turn = true;
   }
-    
 }
