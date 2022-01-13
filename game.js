@@ -5,7 +5,7 @@ class Game {
     this.player1Score = player1.wins;
     this.player2Score = player2.wins;
     this.player1Turn = true;
-    this.player1Turn = false;
+    this.player2Turn = false;
     this.draw = false;
   }
 
