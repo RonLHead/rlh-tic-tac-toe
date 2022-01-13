@@ -28,10 +28,14 @@ var player2 = new Player("p2", "O", 0)
 var game = new Game(player1, player2)
 
 function handleClick(e) {
-  e.preventDefault()
+  // e.preventDefault()
   var location = e.target;
-
-  if(game.player1Turn) {
+  var locationID = e.target.id
+  console.log(location.classList)
+  if(location.innerText === "X" || location.innerText === "O") {
+    return;
+  }
+   if(game.player1Turn) {
     location.innerHTML += `
     <article class="game-square player-one-token"
     id="${e.target.id}">
@@ -50,5 +54,8 @@ function handleClick(e) {
     console.log(player1.token)
     game.player2Turn = false;
     game.player1Turn = true;
-  }
+
+}
+
+  console.log(location.innerText)
 }
