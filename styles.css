@@ -64,6 +64,7 @@ p {
   margin-top: 30px;
   border: #F4F6FE 1px solid;
   border-radius: 25px;
+
 }
 
 .player-container {
@@ -76,10 +77,10 @@ p {
 }
 
 .p-one {
-  margin-bottom: 50px
+  margin-bottom: 30px
 }
 .p-two {
-  margin-top: 50px
+  margin-top: 30px
 }
 
 .game-grid {
@@ -108,3 +109,8 @@ p {
   50% {color: #FFF19A;}
   100% {color: #F4F6FE;}
 }
+
+/* .line-divider {
+  margin: 20px;
+  border: solid #F4F6FE 1px;
+  /* width: 300px; */
