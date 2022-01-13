@@ -20,12 +20,17 @@ h1 {
   font-size: 80px;
   font-stretch: ultra-expanded;
   letter-spacing: 1px;
+
 }
 
 h2 {
   font-size: 40px;
   font-stretch: ultra-expanded;
   letter-spacing: 1px;
+  animation-name: highlight;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
 }
 
 p {
@@ -33,6 +38,7 @@ p {
   font-weight: bolder;
   font-size: 25px;
 }
+
 .game-board {
 
   /* background-color: #3C3F49; */
@@ -42,9 +48,13 @@ p {
     /* height: 800px; */
   margin: 25px;
   padding: 25px;
-  outline-color: #F4F6FE;
-  
+  border: #F4F6FE 4px solid;
+
   border-radius: 25px;
+
+}
+
+.sub-heading {
 
 }
 
@@ -52,7 +62,7 @@ p {
   background-color: #A5A8B0;
   padding: 20px;
   margin-top: 30px;
-  /* display: flex; */
+  border: #F4F6FE 1px solid;
   border-radius: 25px;
 }
 
@@ -86,8 +96,15 @@ p {
   weight: 100px;
   background-color: #3C3F49;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .game-square:hover {
   background-color: #777A84;
+}
+
+@keyframes highlight {
+  0% {color: #F4F6FE;}
+  50% {color: #FFF19A;}
+  100% {color: #F4F6FE;}
 }
