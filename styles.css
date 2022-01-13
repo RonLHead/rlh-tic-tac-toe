@@ -4,58 +4,113 @@
   padding: 0;
 }
 
+body {
+  color: #F4F6FE;
+  text-shadow: 2px 2px 4px #000000;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #D6D8DD;
+  text-align: center;
+}
 
+h1 {
+  font-size: 80px;
+  font-stretch: ultra-expanded;
+  letter-spacing: 1px;
 
+}
+
+h2 {
+  font-size: 40px;
+  font-stretch: ultra-expanded;
+  letter-spacing: 1px;
+  animation-name: highlight;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+p {
+  /* width: 100px; */
+  font-weight: bolder;
+  font-size: 25px;
+}
 
 .game-board {
+
+  /* background-color: #3C3F49; */
+  background: linear-gradient(to bottom, #3C3F49, #53565C), fixed;
+
+  text-align: center;
+    /* height: 800px; */
+  margin: 25px;
+  padding: 25px;
+  border: #F4F6FE 4px solid;
+
+  border-radius: 25px;
+
+}
+
+.sub-heading {
+
+}
+
+.container {
+  background-color: #A5A8B0;
+  padding: 20px;
+  margin-top: 30px;
+  border: #F4F6FE 1px solid;
+  border-radius: 25px;
+
+}
+
+.player-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+
+  justify-content: space-around;
+  /* margin:auto; */
+  /* padding: 25px; */
+}
+
+.p-one {
+  margin-bottom: 30px
+}
+.p-two {
+  margin-top: 30px
+}
+
+.game-grid {
+  background: #A5A8B0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
   width: 400px;
-  height: 400px;
-  padding: 5px;
-  border: 1px solid red;
-
-
-}
-.col {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.square {
-  display: block;
-  width: 125px;
-  height: 125px;
-  border: 1px solid red;
-}
-
-
-/*
-.row {
+.game-square {
   height: 100px;
+  weight: 100px;
+  background-color: #3C3F49;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-
-.column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.game-square:hover {
+  background-color: #777A84;
 }
 
-.column:hover {
-  background-color: white;
+@keyframes highlight {
+  0% {color: #F4F6FE;}
+  50% {color: #FFF19A;}
+  100% {color: #F4F6FE;}
 }
 
-.line-horizontal {
-  border-bottom: 10px solid black;
-}
-
-.line-vertical {
-  border-right: 10px solid red;
-} */
-
-/* .player-two-right {
-  height: 100%;
-  width: 30%;
-} */
+/* .line-divider {
+  margin: 20px;
+  border: solid #F4F6FE 1px;
+  /* width: 300px; */
