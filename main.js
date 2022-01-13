@@ -3,6 +3,9 @@ var player2 = new Player(false, "O", 0);
 var game = new Game(player1, player2);
 var p1Wins = [];
 var p2Wins = [];
+var areBoxesFilled = [var 
+
+]
 
 var whoseTurn = document.getElementById("whoseTurn");
 var p1Score = document.getElementById("pl1Score");
@@ -13,6 +16,7 @@ var boxes = document.querySelectorAll(".game-square");
 for (var i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener("click", addToken);
 }
+whoseTurn.addEventListener("click", clearGameGrid);
 
 function addToken(e) {
   var location = e.target;
@@ -21,13 +25,13 @@ function addToken(e) {
     if (game.player1Turn) {
       location.innerHTML += `
     <article class="game-square player-one-token"
-    id="${location.id}">
+    id="${location.id} filled">
     ${player1.token}</article>`;
       whichPlayersTurn();
     } else {
       location.innerHTML += `
     <article class="game-square player-two-token"
-    id="${location.id}">
+    id="${location.id} filled">
     ${player2.token}</article>`;
       whichPlayersTurn();
     }
@@ -50,7 +54,9 @@ function clearGameGrid() {
 }
 
 function tieGame() {
-  if(boxes.innerText === "X" || boxes.innerText === "O") {
-    clearGameGrid();
-  }
+  //check if game is tied
+}
+
+function threeInARow() {
+
 }
