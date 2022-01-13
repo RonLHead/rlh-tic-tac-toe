@@ -98,6 +98,9 @@ p {
   background-color: #3C3F49;
   cursor: pointer;
   transition: 0.2s;
+  font-size: 100px;
+  line-height: 100px;
+  color: #9D001F;
 }
 
 .game-square:hover {
@@ -109,8 +112,3 @@ p {
   50% {color: #FFF19A;}
   100% {color: #F4F6FE;}
 }
-
-/* .line-divider {
-  margin: 20px;
-  border: solid #F4F6FE 1px;
-  /* width: 300px; */
