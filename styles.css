@@ -100,7 +100,14 @@ p {
   transition: 0.2s;
   font-size: 100px;
   line-height: 100px;
+}
+
+.player-one-token {
   color: #9D001F;
+}
+
+.player-two-token {
+  color: #0B556D;
 }
 
 .game-square:hover {
