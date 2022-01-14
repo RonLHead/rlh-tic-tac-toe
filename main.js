@@ -9,8 +9,8 @@ var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
 var boxes = document.querySelectorAll(".game-square");
 var gameBoard = document.querySelector(".game-grid");
-var p1Container = document.querySelector(".p-one")
-var p2Container = document.querySelector(".p-two")
+// var p1Container = document.querySelector(".p-one")
+// var p2Container = document.querySelector(".p-two")
 //set boxes.disabled = truefor game-squre - may need to set as buttons
 var box1 = boxes[0].innerText;
 var box2 = boxes[1].innerText;
@@ -25,6 +25,7 @@ var areBoxesFilled = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
 
 for (var i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener("click", addToken);
+
 }
 
 function addToken(e) {
@@ -37,7 +38,7 @@ function addToken(e) {
     id="${location.id}">
     ${player1.token}</article>`;
       game.nextPlayer(player1, player2);
-      whichPlayersTurn();
+
     } else {
       location.innerHTML += `
     <article class="game-square player-two-token"
@@ -45,11 +46,12 @@ function addToken(e) {
     ${player2.token}</article>`;
       game.nextPlayer(player1, player2);
 
-      whichPlayersTurn();
     }
   }
   threeInARow();
   tieGame();
+  whichPlayersTurn();
+
 }
 
 // function disableBoxes() {
@@ -115,66 +117,98 @@ function threeInARow() {
 
   if (game.winConditions(areBoxesFilled) === 1) {
     if (areBoxesFilled[0] === player1.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerOneWinsDisplay();
       game.resetGame()
 
     } else if (areBoxesFilled[0] === player2.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerTwoWinsDisplay();
       game.resetGame();
     }
   } else if (game.winConditions(areBoxesFilled) === 2) {
     if (areBoxesFilled[3] === player1.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerOneWinsDisplay();
       game.resetGame();
     } else if (areBoxesFilled[3] === player2.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerTwoWinsDisplay();
       game.resetGame();
     }
   } else if (game.winConditions(areBoxesFilled) === 3) {
     if (areBoxesFilled[6] === player1.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerOneWinsDisplay();
       game.resetGame();
     } else if (areBoxesFilled[6] === player2.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerTwoWinsDisplay();
       game.resetGame();
     }
   } else if (game.winConditions(areBoxesFilled) === 4) {
     if (areBoxesFilled[0] === player1.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerOneWinsDisplay();
       game.resetGame();
     } else if (areBoxesFilled[0] === player2.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerTwoWinsDisplay();
       game.resetGame();
     }
   } else if (game.winConditions(areBoxesFilled) === 5) {
     if (areBoxesFilled[1] === player1.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerOneWinsDisplay();
       game.resetGame();
     } else if (areBoxesFilled[1] === player2.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerTwoWinsDisplay();
       game.resetGame();
     }
   } else if (game.winConditions(areBoxesFilled) === 6) {
     if (areBoxesFilled[2] === player1.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerOneWinsDisplay();
       game.resetGame();
     } else if (areBoxesFilled[2] === player2.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerTwoWinsDisplay();
       game.resetGame();
     }
   } else if (game.winConditions(areBoxesFilled) === 7) {
     if (areBoxesFilled[4] === player1.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerOneWinsDisplay();
       game.resetGame();
     } else if (areBoxesFilled[4] === player2.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerTwoWinsDisplay();
       game.resetGame();
     }
   } else if (game.winConditions(areBoxesFilled) === 8) {
     if (areBoxesFilled[4] === player1.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerOneWinsDisplay();
       game.resetGame();
     } else if (areBoxesFilled[4] === player2.token) {
+      console.log(game.winConditions(areBoxesFilled))
+
       playerTwoWinsDisplay();
       game.resetGame();
     }
