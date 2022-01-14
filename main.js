@@ -8,6 +8,7 @@ var whoseTurn = document.getElementById("whoseTurn");
 var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
 var boxes = document.querySelectorAll(".game-square");
+var gameBoard = document.querySelector(".game-grid")
 
 var box1 = boxes[0].innerText;
 var box2 = boxes[1].innerText;
@@ -24,6 +25,8 @@ for (var i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener("click", addToken);
   // var stopClick = boxes[i].addEventListener("click", preventClick);
 }
+
+// gameBoard.addEventListener("click", freezeClick)
 // whoseTurn.addEventListener("click", clearGameGrid);
 
 function addToken(e) {
@@ -36,55 +39,37 @@ function addToken(e) {
     <article class="game-square player-one-token"
     id="${location.id}">
     ${player1.token}</article>`;
+    game.nextPlayer(player1, player2);
       whichPlayersTurn();
     } else {
       location.innerHTML += `
     <article class="game-square player-two-token"
     id="${location.id}">
     ${player2.token}</article>`;
+    game.nextPlayer(player1, player2);
+
       whichPlayersTurn();
     }
   }
   threeInARow();
   tieGame();
-  // e.stopProgagation();
 }
 
 function whichPlayersTurn() {
-  game.nextPlayer(player1, player2);
-  if (player2.id) {
-    whoseTurn.innerText = "It's Player Two's Turn!";
-  } else {
-    whoseTurn.innerText = "It's Player One's Turn!";
-    game.player1Turn = true;
-  }
+    if (player2.id) {
+      whoseTurn.innerText = "It's Player Two's Turn!";
+    } else {
+      whoseTurn.innerText = "It's Player One's Turn!";
+      game.player1Turn = true;
+    }
 }
 
 function clearGameGrid() {
   for (var i = 0; i < boxes.length; i++) {
       boxes[i].innerText = "";
     }
-  //
-  // if(game.winner === player1.id) {
-  //   whoseTurn.innerText = "It's Player One's Turn";
-  // } else if (game.winner === player2.id) {
-  //   whoseTurn.innerText = "It's Player Two's Turn";
-  // }
-  // whoseTurn.innerText = "It's Player One's Turn";
-  // game.player1Turn = true;
-  // player1.id = true;
-  // game.player2Turn = false;
-  // player2.id = false;
 }
 
-// function resetToPlayerOne() {
-//   whoseTurn.innerText = "It's Player One's Turn!";
-//   game.player1Turn = true;
-// }
-
-function tieDisplay() {
-  whoseTurn.innerText = "It's a Tie! Play Again.";
-}
 
 function tieGame() {
   var allFilled = 0;
@@ -96,15 +81,10 @@ function tieGame() {
 
   if (allFilled === 9 && !game.winner) {
     game.draw = true;
-
+whoseTurn.innerText = "It's a Tie! Play Again.";
     clearGameGrid();
-    if (player2.id) {
-      tieDisplay()
-      setTimeout("whoseTurn.innerText = `It's Player Two's Turn!`", 3000)
-    } else {
-      setTimeout("tieDisplay()", 3000)
-      setTimeout("whoseTurn.innerText = `It's Player One's Turn!`", 3000)
-  }
+    setTimeout("whichPlayersTurn()", 2000);
+    // freezeClick(event)
 }}
 
 function threeInARow() {
@@ -112,29 +92,26 @@ function threeInARow() {
     areBoxesFilled[i] = boxes[i].innerText;
   }
 
-  if (
-    areBoxesFilled[0] === areBoxesFilled[1] &&
-    areBoxesFilled[0] === areBoxesFilled[2]
-  ) {
+  if (game.winConditions(areBoxesFilled) === 1) {
     if (areBoxesFilled[0] === player1.token) {
       player1.wins.push(player1.token);
       game.player1Score = player1.wins.length;
       game.winner = player1.id;
       whoseTurn.innerText = "Player One Wins!";
       p1Score.innerText = `Score: ${game.player1Score}`;
-      setTimeout("clearGameGrid()", 3000);
+      clearGameGrid();
+      setTimeout("whichPlayersTurn()", 3000)
     } else if (areBoxesFilled[0] === player2.token) {
       player2.wins.push(player2.token);
       game.player2Score = player2.wins.length;
       game.winner = player2.id;
       whoseTurn.innerText = "Player Two Wins!";
       p2Score.innerText = `Score: ${game.player2Score}`;
-      setTimeout("clearGameGrid()", 3000);
+      clearGameGrid();
+      setTimeout("whichPlayersTurn()", 3000)
     }
-  } else if (
-    areBoxesFilled[3] === areBoxesFilled[4] &&
-    areBoxesFilled[3] === areBoxesFilled[5]
-  ) {
+  } else if (game.winConditions(areBoxesFilled) === 2)
+  {
     if (areBoxesFilled[3] === player1.token) {
       player1.wins.push(player1.token);
       game.player1Score = player1.wins.length;
@@ -150,10 +127,7 @@ function threeInARow() {
       p2Score.innerText = `Score: ${game.player2Score}`;
       setTimeout("clearGameGrid()", 3000);
     }
-  } else if (
-    areBoxesFilled[6] === areBoxesFilled[7] &&
-    areBoxesFilled[7] === areBoxesFilled[8]
-  ) {
+  } else if (game.winConditions(areBoxesFilled) === 3) {
     if (areBoxesFilled[6] === player1.token) {
       player1.wins.push(player1.token);
       game.player1Score = player1.wins.length;
@@ -170,8 +144,7 @@ function threeInARow() {
       setTimeout("clearGameGrid()", 3000);
     }
   } else if (
-    areBoxesFilled[0] === areBoxesFilled[3] &&
-    areBoxesFilled[0] === areBoxesFilled[6]
+
   ) {
     if (areBoxesFilled[0] === player1.token) {
       player1.wins.push(player1.token);

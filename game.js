@@ -16,7 +16,20 @@ class Game {
     this.player2Turn = player2.id;
   }
 
-  winConditions() {}
+  winConditions(gameArray) {
+    if(gameArray[0] === gameArray[1] && gameArray[0] === gameArray[2]) {
+      return 1;
+    } else if (gameArray[3] === gameArray[4] &&
+    gameArray[3] === gameArray[5]) {
+      return 2;
+    } else if (gameArray[6] === gameArray[7] &&
+    gameArray[7] === gameArray[8]) {
+      return 3;
+    } else if (gameArray[0] === gameArray[3] &&
+    gameArray[0] === gameArray[6]) {
+      return 4;
+    }
+  }
 
   gameDraw() {}
 
