@@ -28,10 +28,25 @@ class Game {
     } else if (gameArray[0] === gameArray[3] &&
     gameArray[0] === gameArray[6]) {
       return 4;
+    } else if (gameArray[1] === gameArray[4] &&
+    gameArray[1] === gameArray[7]) {
+      return 5;
+    } else if (gameArray[2] === gameArray[5] &&
+    gameArray[2] === gameArray[8]) {
+      return 6;
+    } else if (gameArray[0] === gameArray[4] &&
+    gameArray[0] === gameArray[8]) {
+      return 7;
+    } else if (gameArray[2] === gameArray[4] &&
+    gameArray[2] === gameArray[6]) {
+      return 8;
     }
   }
 
   gameDraw() {}
 
-  resetGame() {}
+  resetGame() {
+    clearGameGrid();
+    setTimeout("whichPlayersTurn()", 2000);
+  }
 }
