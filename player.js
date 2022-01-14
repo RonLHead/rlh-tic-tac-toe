@@ -4,12 +4,4 @@ class Player {
     this.token = token;
     this.wins = wins
   }
-
-  saveWinsToStorage() {
-
-  }
-
-  retrieveWinsFromStorage() {
-    
-  }
 }
