@@ -9,6 +9,7 @@ var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
 var boxes = document.querySelectorAll(".game-square");
 var gameBoard = document.querySelector(".game-grid");
+var playerContainer = document.querySelector(".player-container")
 //set boxes.disabled = truefor game-squre - may need to set as buttons
 var box1 = boxes[0].innerText;
 var box2 = boxes[1].innerText;
@@ -93,6 +94,7 @@ function playerOneWinsDisplay() {
   game.player1Score = player1.wins.length;
   whoseTurn.innerText = "Player One Wins!";
   p1Score.innerText = `Score: ${game.player1Score}`;
+  playerContainer.classList.add("animation-short")
 }
 
 function playerTwoWinsDisplay() {
