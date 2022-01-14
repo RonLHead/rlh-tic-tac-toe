@@ -9,7 +9,8 @@ var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
 var boxes = document.querySelectorAll(".game-square");
 var gameBoard = document.querySelector(".game-grid");
-var playerContainer = document.querySelector(".player-container")
+var p1Container = document.querySelector(".p-one")
+var p2Container = document.querySelector(".p-two")
 //set boxes.disabled = truefor game-squre - may need to set as buttons
 var box1 = boxes[0].innerText;
 var box2 = boxes[1].innerText;
@@ -71,6 +72,7 @@ function clearGameGrid() {
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].innerText = "";
   }
+
 }
 
 function tieGame() {
@@ -94,7 +96,7 @@ function playerOneWinsDisplay() {
   game.player1Score = player1.wins.length;
   whoseTurn.innerText = "Player One Wins!";
   p1Score.innerText = `Score: ${game.player1Score}`;
-  playerContainer.classList.add("animation-short")
+  // p1Container.classList.add("animation-short")
 }
 
 function playerTwoWinsDisplay() {
@@ -103,6 +105,7 @@ function playerTwoWinsDisplay() {
   game.player2Score = player2.wins.length;
   whoseTurn.innerText = "Player Two Wins!";
   p2Score.innerText = `Score: ${game.player2Score}`;
+  // p2Container.classList.add("animation-short")
 }
 
 function threeInARow() {

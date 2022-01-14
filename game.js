@@ -17,13 +17,14 @@ class Game {
   }
 
   winConditions(gameArray) {
-    if(gameArray[0] === gameArray[1] && gameArray[0] === gameArray[2]) {
+    if(gameArray[0] === gameArray[1]
+      && gameArray[0] === gameArray[2]) {
       return 1;
     } else if (gameArray[3] === gameArray[4] &&
     gameArray[3] === gameArray[5]) {
       return 2;
     } else if (gameArray[6] === gameArray[7] &&
-    gameArray[7] === gameArray[8]) {
+    gameArray[6] === gameArray[8]) {
       return 3;
     } else if (gameArray[0] === gameArray[3] &&
     gameArray[0] === gameArray[6]) {
@@ -60,5 +61,10 @@ class Game {
 
     clearGameGrid();
 
+    // setTimeout(function() {
+    //   p1Container.classList.remove("animation-short")
+    //   p2Container.classList.remove("animation-short")
+    //
+    // }, 3000 )
   }
 }
