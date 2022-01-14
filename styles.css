@@ -88,6 +88,9 @@ p {
   transition: 0.2s;
   font-size: 100px;
   line-height: 100px;
+  /* border: none; */
+  border-radius: 10px;
+  border: #f4f6fe 1px solid;
 }
 
 .player-one-token {
@@ -95,7 +98,7 @@ p {
 }
 
 .player-two-token {
-  color: #e3f4fb;
+  color: #6666ff;
 }
 
 .game-square:hover {
