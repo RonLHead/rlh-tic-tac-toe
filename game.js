@@ -43,10 +43,22 @@ class Game {
     }
   }
 
-  gameDraw() {}
+
 
   resetGame() {
+    for(var i =0; i < boxes.length; i++) {
+      // console.log(boxes)
+      boxes[i].disabled = true;
+    }
+    setTimeout(function(){
+      for(var i =0; i < boxes.length; i++) {
+        // console.log(boxes)
+        boxes[i].disabled = false;
+      }
+      whichPlayersTurn();
+    }, 2000);
+
     clearGameGrid();
-    setTimeout("whichPlayersTurn()", 2000);
+
   }
 }

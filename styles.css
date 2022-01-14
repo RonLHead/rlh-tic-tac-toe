@@ -91,7 +91,7 @@ p {
 }
 
 .player-one-token {
-  color: #f5ecef;
+  color: #e62e00;
 }
 
 .player-two-token {
@@ -112,4 +112,8 @@ p {
   100% {
     color: #f4f6fe;
   }
+}
+
+.disabled {
+  display: none;
 }
