@@ -30,7 +30,7 @@ function addToken(e) {
   // e.preventDefault()
   var location = e.target;
 
-  if (location.innerText === "" || location.innerText === "") {
+  if (location.innerText === "") {
     if (game.player1Turn) {
       location.innerHTML += `
     <article class="game-square player-one-token"
@@ -96,10 +96,16 @@ function tieGame() {
 
   if (allFilled === 9 && !game.winner) {
     game.draw = true;
-    tieDisplay();
-    clearGameGrid()
+
+    clearGameGrid();
+    if (player2.id) {
+      tieDisplay()
+      setTimeout("whoseTurn.innerText = `It's Player Two's Turn!`", 3000)
+    } else {
+      setTimeout("tieDisplay()", 3000)
+      setTimeout("whoseTurn.innerText = `It's Player One's Turn!`", 3000)
   }
-}
+}}
 
 function threeInARow() {
   for (var i = 0; i < boxes.length; i++) {
