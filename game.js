@@ -34,9 +34,7 @@ class Game {
   winConditions(gameArray) {
     // debugger
     //boxes[1].innerText
-    for(var i =0; i < gameArray.length; i++) {
-      
-    }
+    
     if(gameArray[0] === gameArray[1]
       && gameArray[1] === gameArray[2] && gameArray[0] != '') {
       return 1;

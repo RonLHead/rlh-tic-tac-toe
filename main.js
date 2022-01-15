@@ -6,7 +6,8 @@ var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
 var boxes = document.querySelectorAll(".game-square");
 var gameBoard = document.querySelector(".game-grid");
-
+var p1Container = document.getElementById("p-one")
+var p2Container = document.getElementById("p-two")
 // var box1 = boxes[0].innerText;
 // var box2 = boxes[1].innerText;
 // var box3 = boxes[2].innerText;
@@ -16,7 +17,7 @@ var gameBoard = document.querySelector(".game-grid");
 // var box7 = boxes[6].innerText;
 // var box8 = boxes[7].innerText;
 // var box9 = boxes[8].innerText;
-// var areBoxesFilled = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
+// var areBoxesFilled = [, box2, box3, box4, box5, box6, box7, box8, box9];
 
 for (var i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener("click", addToken);
@@ -104,7 +105,7 @@ function playerOneWinsDisplay() {
 
 function playerTwoWinsDisplay() {
   game.winner = game.player2.id;
-  player2.wins.push(player2.token);
+  game.player2.wins.push(game.player2.token);
   game.player2Score = game.player2.wins.length;
   whoseTurn.innerText = "Player Two Wins!";
   p2Score.innerText = `Score: ${game.player2Score}`;
