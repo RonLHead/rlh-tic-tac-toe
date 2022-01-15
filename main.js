@@ -1,27 +1,22 @@
-var player1 = new Player("x", String.fromCodePoint(0x2734), []);
-var player2 = new Player("y", String.fromCodePoint(0x25FC), []);
-var game = new Game(player1, player2);
-var p1Wins = [];
-var p2Wins = [];
+
+var game = new Game();
 
 var whoseTurn = document.getElementById("whoseTurn");
 var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
 var boxes = document.querySelectorAll(".game-square");
 var gameBoard = document.querySelector(".game-grid");
-// var p1Container = document.querySelector(".p-one")
-// var p2Container = document.querySelector(".p-two")
-//set boxes.disabled = truefor game-squre - may need to set as buttons
-var box1 = boxes[0].innerText;
-var box2 = boxes[1].innerText;
-var box3 = boxes[2].innerText;
-var box4 = boxes[3].innerText;
-var box5 = boxes[4].innerText;
-var box6 = boxes[5].innerText;
-var box7 = boxes[6].innerText;
-var box8 = boxes[7].innerText;
-var box9 = boxes[8].innerText;
-var areBoxesFilled = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
+
+// var box1 = boxes[0].innerText;
+// var box2 = boxes[1].innerText;
+// var box3 = boxes[2].innerText;
+// var box4 = boxes[3].innerText;
+// var box5 = boxes[4].innerText;
+// var box6 = boxes[5].innerText;
+// var box7 = boxes[6].innerText;
+// var box8 = boxes[7].innerText;
+// var box9 = boxes[8].innerText;
+// var areBoxesFilled = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
 
 for (var i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener("click", addToken);
@@ -33,17 +28,15 @@ function addToken(e) {
 
   if (location.innerText === "") {
     if (game.player1Turn) {
-      location.innerText = player1.token.toString();
-      location.classList.add(player1.id)
-      game.nextPlayer(player1, player2);
+      location.innerText = game.player1.token.toString();
+      location.classList.add(game.player1.id)
+      game.nextPlayer(game.player1, game.player2);
       whichPlayersTurn();
 
     } else {
-      location.innerHTML = `
-    <article class="game-square player-two-token"
-    id="${location.id}">
-    ${player2.token}</article>`;
-      game.nextPlayer(player1, player2);
+      location.innerText = game.player2.token.toString();
+      location.classList.add(game.player2.id)
+      game.nextPlayer(game.player1, game.player2);
       whichPlayersTurn();
 
     }
@@ -53,12 +46,21 @@ function addToken(e) {
 
 }
 
-// function disableBoxes() {
-//   for(var i =0; i < boxes.length; i++) {
-//     console.log(boxes)
-//     boxes[i].disabled = true;
-//   }
-// }
+function disableBoxes() {
+  for(var i =0; i < boxes.length; i++) {
+    // console.log(boxes)
+    boxes[i].disabled = true;
+  }
+}
+
+function enableBoxes() {
+  setTimeout(function() {
+    for(var i =0; i < boxes.length; i++) {
+      // console.log(boxes)
+      boxes[i].disabled = false;
+    } whichPlayersTurn();
+  }, 2000);
+}
 
 function whichPlayersTurn() {
   if (game.player2Turn) {
@@ -92,122 +94,122 @@ function tieGame() {
 }
 
 function playerOneWinsDisplay() {
-  game.winner = player1.id;
-  player1.wins.push(player1.token);
-  game.player1Score = player1.wins.length;
+  game.winner = game.player1.id;
+  game.player1.wins.push(game.player1.token);
+  game.player1Score = game.player1.wins.length;
   whoseTurn.innerText = "Player One Wins!";
   p1Score.innerText = `Score: ${game.player1Score}`;
-  // p1Container.classList.add("animation-short")
+  p1Container.classList.add("animation-short")
 }
 
 function playerTwoWinsDisplay() {
-  game.winner = player2.id;
+  game.winner = game.player2.id;
   player2.wins.push(player2.token);
-  game.player2Score = player2.wins.length;
+  game.player2Score = game.player2.wins.length;
   whoseTurn.innerText = "Player Two Wins!";
   p2Score.innerText = `Score: ${game.player2Score}`;
-  // p2Container.classList.add("animation-short")
+  p2Container.classList.add("animation-short")
 }
 
 function threeInARow() {
   for (var i = 0; i < boxes.length; i++) {
-    areBoxesFilled[i] = boxes[i].innerText;
+    game.areBoxesFilled[i] = boxes[i].innerText;
   }
 
-  if (game.winConditions(areBoxesFilled) === 1) {
-    if (boxes[0].classList[1] === player1.id) {
+  if (game.winConditions(game.areBoxesFilled) === 1) {
+    if (boxes[0].classList[1] === game.player1.id) {
       //'✖️'
-      console.log(game.winConditions(areBoxesFilled))
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame()
 
-    } else if (areBoxesFilled[0] === player2.token) {
-      console.log(game.winConditions(areBoxesFilled))
+    } else if (game.areBoxesFilled[0] === game.player2.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerTwoWinsDisplay();
       game.resetGame();
     }
-  } else if (game.winConditions(areBoxesFilled) === 2) {
-    if (areBoxesFilled[3] === player1.token) {
-      console.log(game.winConditions(areBoxesFilled))
+  } else if (game.winConditions(game.areBoxesFilled) === 2) {
+    if (game.areBoxesFilled[3] === game.player1.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame();
-    } else if (areBoxesFilled[3] === player2.token) {
-      console.log(game.winConditions(areBoxesFilled))
+    } else if (game.areBoxesFilled[3] === game.player2.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerTwoWinsDisplay();
       game.resetGame();
     }
-  } else if (game.winConditions(areBoxesFilled) === 3) {
-    if (areBoxesFilled[6] === player1.token) {
-      console.log(game.winConditions(areBoxesFilled))
+  } else if (game.winConditions(game.areBoxesFilled) === 3) {
+    if (game.areBoxesFilled[6] === game.player1.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame();
-    } else if (areBoxesFilled[6] === player2.token) {
-      console.log(game.winConditions(areBoxesFilled))
+    } else if (game.areBoxesFilled[6] === game.player2.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerTwoWinsDisplay();
       game.resetGame();
     }
-  } else if (game.winConditions(areBoxesFilled) === 4) {
-    if (areBoxesFilled[0] === player1.token) {
-      console.log(game.winConditions(areBoxesFilled))
+  } else if (game.winConditions(game.areBoxesFilled) === 4) {
+    if (game.areBoxesFilled[0] === game.player1.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame();
-    } else if (areBoxesFilled[0] === player2.token) {
-      console.log(game.winConditions(areBoxesFilled))
+    } else if (game.areBoxesFilled[0] === game.player2.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerTwoWinsDisplay();
       game.resetGame();
     }
-  } else if (game.winConditions(areBoxesFilled) === 5) {
-    if (areBoxesFilled[1] === player1.token) {
-      console.log(game.winConditions(areBoxesFilled))
+  } else if (game.winConditions(game.areBoxesFilled) === 5) {
+    if (game.areBoxesFilled[1] === game.player1.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame();
-    } else if (areBoxesFilled[1] === player2.token) {
-      console.log(game.winConditions(areBoxesFilled))
+    } else if (game.areBoxesFilled[1] === game.player2.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerTwoWinsDisplay();
       game.resetGame();
     }
-  } else if (game.winConditions(areBoxesFilled) === 6) {
-    if (areBoxesFilled[2] === player1.token) {
-      console.log(game.winConditions(areBoxesFilled))
+  } else if (game.winConditions(game.areBoxesFilled) === 6) {
+    if (game.areBoxesFilled[2] === game.player1.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame();
-    } else if (areBoxesFilled[2] === player2.token) {
-      console.log(game.winConditions(areBoxesFilled))
+    } else if (game.areBoxesFilled[2] === game.player2.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerTwoWinsDisplay();
       game.resetGame();
     }
-  } else if (game.winConditions(areBoxesFilled) === 7) {
-    if (areBoxesFilled[4] === player1.token) {
-      console.log(game.winConditions(areBoxesFilled))
+  } else if (game.winConditions(game.areBoxesFilled) === 7) {
+    if (game.areBoxesFilled[4] === game.player1.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame();
-    } else if (areBoxesFilled[4] === player2.token) {
-      console.log(game.winConditions(areBoxesFilled))
+    } else if (game.areBoxesFilled[4] === game.player2.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerTwoWinsDisplay();
       game.resetGame();
     }
-  } else if (game.winConditions(areBoxesFilled) === 8) {
-    if (areBoxesFilled[4] === player1.token) {
+  } else if (game.winConditions(game.areBoxesFilled) === 8) {
+    if (game.areBoxesFilled[4] === game.player1.token) {
       console.log(game.winConditions(areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame();
-    } else if (areBoxesFilled[4] === player2.token) {
-      console.log(game.winConditions(areBoxesFilled))
+    } else if (game.areBoxesFilled[4] === game.player2.token) {
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerTwoWinsDisplay();
       game.resetGame();
