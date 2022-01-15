@@ -54,6 +54,7 @@ class Game {
       // console.log(boxes)
       boxes[i].disabled = true;
     }
+    game.winner = false;
     setTimeout(function(){
       for(var i =0; i < boxes.length; i++) {
         // console.log(boxes)

@@ -1,5 +1,5 @@
-var player1 = new Player("x", "&#10006;&#65039;", []);
-var player2 = new Player("y", "O", []);
+var player1 = new Player("x", String.fromCodePoint(0x2734), []);
+var player2 = new Player("y", String.fromCodePoint(0x25FC), []);
 var game = new Game(player1, player2);
 var p1Wins = [];
 var p2Wins = [];
@@ -115,7 +115,7 @@ function threeInARow() {
   }
 
   if (game.winConditions(areBoxesFilled) === 1) {
-    if (boxes[0].classList === player1.id) {
+    if (boxes[0].classList[1] === player1.id) {
       //'✖️'
       console.log(game.winConditions(areBoxesFilled))
 
