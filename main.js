@@ -38,6 +38,7 @@ function addToken(e) {
     id="${location.id}">
     ${player1.token}</article>`;
       game.nextPlayer(player1, player2);
+      whichPlayersTurn();
 
     } else {
       location.innerHTML += `
@@ -45,12 +46,12 @@ function addToken(e) {
     id="${location.id}">
     ${player2.token}</article>`;
       game.nextPlayer(player1, player2);
+      whichPlayersTurn();
 
     }
   }
   threeInARow();
   tieGame();
-  whichPlayersTurn();
 
 }
 
