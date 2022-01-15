@@ -19,21 +19,21 @@ function playerClick(e) {
   if (location.innerText === "") {
     if (game.player1Turn) {
       location.innerText = game.player1.token.toString();
+      //Fix below to flush after a game is won
       location.classList.add(game.player1.id)
       game.nextPlayer(game.player1, game.player2);
-      whichPlayersTurn();
+
 
     } else {
       location.innerText = game.player2.token.toString();
       location.classList.add(game.player2.id)
       game.nextPlayer(game.player1, game.player2);
-      whichPlayersTurn();
 
     }
   }
   threeInARow();
   tieGame();
-
+  whichPlayersTurn();
 }
 
 function disableBoxes() {
@@ -64,11 +64,9 @@ function whichPlayersTurn() {
 function clearGameGrid() {
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].innerText = "";
+    boxes[i].classList[1].remove();
   }
-  setTimeout( function() {
-    p1Container.classList.remove("highlight");
-    p2Container.classList.remove("highlight")
-  }, 5000)
+
 
 
 }
@@ -110,6 +108,7 @@ function playerTwoWinsDisplay() {
 }
 
 function threeInARow() {
+  debugger;
   for (var i = 0; i < boxes.length; i++) {
     game.areBoxesFilled[i] = boxes[i].innerText;
   }
@@ -202,7 +201,7 @@ function threeInARow() {
     }
   } else if (game.winConditions(game.areBoxesFilled) === 8) {
     if (game.areBoxesFilled[4] === game.player1.token) {
-      console.log(game.winConditions(areBoxesFilled))
+      console.log(game.winConditions(game.areBoxesFilled))
 
       playerOneWinsDisplay();
       game.resetGame();

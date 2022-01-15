@@ -10,15 +10,7 @@ class Game {
     this.winner = null;
     this.p1Wins = [];
     this.p2Wins = [];
-    // this.box1 = null;
-    // this.box2 = null;
-    // this.box3 = null;
-    // this.box4 = null;
-    // this.box5 = null;
-    // this.box6 = null;
-    // this.box7 = null;
-    // this.box8 = null;
-    // this.box9 = null;
+    
     this.areBoxesFilled = [];
   }
 
@@ -34,7 +26,7 @@ class Game {
   winConditions(gameArray) {
     // debugger
     //boxes[1].innerText
-    
+
     if(gameArray[0] === gameArray[1]
       && gameArray[1] === gameArray[2] && gameArray[0] != '') {
       return 1;
