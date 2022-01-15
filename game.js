@@ -5,15 +5,15 @@ class Game {
     this.player1Turn = true;
     this.player2Turn = false;
     this.draw = false;
-    this.winner = false;
+    this.winner = null;
   }
 
   nextPlayer(player1, player2) {
-    player1.id = !player1.id;
-    player2.id = !player2.id;
+    // player1.id = !player1.id;
+    // player2.id = !player2.id;
 
-    this.player1Turn = player1.id;
-    this.player2Turn = player2.id;
+    this.player1Turn = !this.player1Turn;
+    this.player2Turn = !this.player2Turn;
   }
 
   winConditions(gameArray) {

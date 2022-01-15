@@ -1,5 +1,5 @@
-var player1 = new Player(true, "X", []);
-var player2 = new Player(false, "O", []);
+var player1 = new Player("x", "&#10006;&#65039;", []);
+var player2 = new Player("y", "O", []);
 var game = new Game(player1, player2);
 var p1Wins = [];
 var p2Wins = [];
@@ -33,15 +33,13 @@ function addToken(e) {
 
   if (location.innerText === "") {
     if (game.player1Turn) {
-      location.innerHTML += `
-    <article class="game-square player-one-token"
-    id="${location.id}">
-    ${player1.token}</article>`;
+      location.innerText = player1.token.toString();
+      location.classList.add(player1.id)
       game.nextPlayer(player1, player2);
       whichPlayersTurn();
 
     } else {
-      location.innerHTML += `
+      location.innerHTML = `
     <article class="game-square player-two-token"
     id="${location.id}">
     ${player2.token}</article>`;
@@ -63,7 +61,7 @@ function addToken(e) {
 // }
 
 function whichPlayersTurn() {
-  if (player2.id) {
+  if (game.player2Turn) {
     whoseTurn.innerText = "It's Player Two's Turn!";
   } else {
     whoseTurn.innerText = "It's Player One's Turn!";
@@ -117,7 +115,8 @@ function threeInARow() {
   }
 
   if (game.winConditions(areBoxesFilled) === 1) {
-    if (areBoxesFilled[0] === player1.token) {
+    if (boxes[0].classList === player1.id) {
+      //'✖️'
       console.log(game.winConditions(areBoxesFilled))
 
       playerOneWinsDisplay();
