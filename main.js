@@ -6,25 +6,14 @@ var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
 var boxes = document.querySelectorAll(".game-square");
 var gameBoard = document.querySelector(".game-grid");
-var p1Container = document.getElementById("p-one")
-var p2Container = document.getElementById("p-two")
-// var box1 = boxes[0].innerText;
-// var box2 = boxes[1].innerText;
-// var box3 = boxes[2].innerText;
-// var box4 = boxes[3].innerText;
-// var box5 = boxes[4].innerText;
-// var box6 = boxes[5].innerText;
-// var box7 = boxes[6].innerText;
-// var box8 = boxes[7].innerText;
-// var box9 = boxes[8].innerText;
-// var areBoxesFilled = [, box2, box3, box4, box5, box6, box7, box8, box9];
+var p1Container = document.querySelector(".p-one")
+var p2Container = document.querySelector(".p-two")
 
 for (var i = 0; i < boxes.length; i++) {
-  boxes[i].addEventListener("click", addToken);
-
+  boxes[i].addEventListener("click", playerClick);
 }
 
-function addToken(e) {
+function playerClick(e) {
   var location = e.target;
 
   if (location.innerText === "") {
@@ -76,6 +65,11 @@ function clearGameGrid() {
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].innerText = "";
   }
+  setTimeout( function() {
+    p1Container.classList.remove("highlight");
+    p2Container.classList.remove("highlight")
+  }, 5000)
+
 
 }
 
@@ -100,7 +94,9 @@ function playerOneWinsDisplay() {
   game.player1Score = game.player1.wins.length;
   whoseTurn.innerText = "Player One Wins!";
   p1Score.innerText = `Score: ${game.player1Score}`;
-  p1Container.classList.add("animation-short")
+  p1Container.classList.add("highlight")
+
+
 }
 
 function playerTwoWinsDisplay() {
@@ -109,7 +105,8 @@ function playerTwoWinsDisplay() {
   game.player2Score = game.player2.wins.length;
   whoseTurn.innerText = "Player Two Wins!";
   p2Score.innerText = `Score: ${game.player2Score}`;
-  p2Container.classList.add("animation-short")
+  p2Container.classList.add("highlight")
+
 }
 
 function threeInARow() {
