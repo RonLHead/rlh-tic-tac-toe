@@ -20,6 +20,18 @@ class Game {
     this.player2Turn = !this.player2Turn;
   }
 
+  whichPlayerWon(player) {
+    if (player === game.player1) {
+      game.winner = game.player1.id;
+      game.player1.wins.push(game.player1.token);
+      game.player1Score = game.player1.wins.length;
+    } else {
+      game.winner = game.player2.id;
+      game.player2.wins.push(game.player2.token);
+      game.player2Score = game.player2.wins.length;
+    }
+  }
+
   winConditions(boxes) {
     if (boxes[0] === boxes[1] && boxes[1] === boxes[2] && boxes[0] != "") {
       return 1;
