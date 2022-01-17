@@ -1,4 +1,5 @@
 
+// debugger;
 var game = new Game();
 
 var whoseTurn = document.getElementById("whoseTurn");
@@ -20,20 +21,20 @@ function playerClick(e) {
     if (game.player1Turn) {
       location.innerText = game.player1.token.toString();
       //Fix below to flush after a game is won
-      location.classList.add(game.player1.id)
+      // location.classList.add(game.player1.id)
       game.nextPlayer(game.player1, game.player2);
-
+      whichPlayersTurn();
 
     } else {
       location.innerText = game.player2.token.toString();
-      location.classList.add(game.player2.id)
+      // location.classList.add(game.player2.id)
       game.nextPlayer(game.player1, game.player2);
-
+      whichPlayersTurn();
     }
   }
   threeInARow();
   tieGame();
-  whichPlayersTurn();
+
 }
 
 function disableBoxes() {
@@ -49,7 +50,7 @@ function enableBoxes() {
       // console.log(boxes)
       boxes[i].disabled = false;
     } whichPlayersTurn();
-  }, 2000);
+  }, 8000);
 }
 
 function whichPlayersTurn() {
@@ -64,7 +65,8 @@ function whichPlayersTurn() {
 function clearGameGrid() {
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].innerText = "";
-    boxes[i].classList[1].remove();
+    boxes[i].classList.remove("highlight")
+
   }
 
 
@@ -108,13 +110,13 @@ function playerTwoWinsDisplay() {
 }
 
 function threeInARow() {
-  debugger;
+  // debugger;
   for (var i = 0; i < boxes.length; i++) {
     game.areBoxesFilled[i] = boxes[i].innerText;
   }
 
   if (game.winConditions(game.areBoxesFilled) === 1) {
-    if (boxes[0].classList[1] === game.player1.id) {
+    if (game.areBoxesFilled[0] === game.player1.token) {
       //'✖️'
       console.log(game.winConditions(game.areBoxesFilled))
 
