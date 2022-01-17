@@ -101,8 +101,9 @@ p {
 }
 
 .win-background {
-  background-color: #fff19a;
-
+  box-shadow: 0 0 5px 5px white;
+    /* in order: x offset, y offset, blur size, spread size, color */
+    /* blur size and spread size are optional (they default to 0) */
 }
 
 .square-background {

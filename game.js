@@ -52,13 +52,48 @@ class Game {
   }
 
   winningRow(winCondit) {
-    if(winCondit === 1) {
+    if (winCondit === 1) {
       disableBoxes()
       toggleBoxWin(0)
       toggleBoxWin(1)
       toggleBoxWin(2)
+    } else if (winCondit === 2) {
+        disableBoxes()
+        toggleBoxWin(3)
+        toggleBoxWin(4)
+        toggleBoxWin(5)
+      } else if (winCondit === 3) {
+          disableBoxes()
+          toggleBoxWin(6)
+          toggleBoxWin(7)
+          toggleBoxWin(8)
+        } else if (winCondit === 4) {
+            disableBoxes()
+            toggleBoxWin(0)
+            toggleBoxWin(3)
+            toggleBoxWin(6)
+          } else if (winCondit === 5) {
+              disableBoxes()
+              toggleBoxWin(1)
+              toggleBoxWin(4)
+              toggleBoxWin(7)
+            } else if (winCondit === 6) {
+                disableBoxes()
+                toggleBoxWin(2)
+                toggleBoxWin(5)
+                toggleBoxWin(8)
+              } else if (winCondit === 7) {
+                  disableBoxes()
+                  toggleBoxWin(0)
+                  toggleBoxWin(4)
+                  toggleBoxWin(8)
+                } else if (winCondit === 8) {
+                    disableBoxes()
+                    toggleBoxWin(2)
+                    toggleBoxWin(4)
+                    toggleBoxWin(6)
+                  }
 
-    }
   }
 
   clearWinningRow(winCondit) {
@@ -66,13 +101,42 @@ class Game {
       toggleBoxRefresh(0)
       toggleBoxRefresh(1)
       toggleBoxRefresh(2)
-    }
+    } else if (winCondit === 2) {
+        toggleBoxRefresh(3)
+        toggleBoxRefresh(4)
+        toggleBoxRefresh(5)
+      } else if (winCondit === 3) {
+          toggleBoxRefresh(6)
+          toggleBoxRefresh(7)
+          toggleBoxRefresh(8)
+        } else if (winCondit === 4) {
+            toggleBoxRefresh(0)
+            toggleBoxRefresh(3)
+            toggleBoxRefresh(6)
+          } else if (winCondit === 5) {
+              toggleBoxRefresh(1)
+              toggleBoxRefresh(4)
+              toggleBoxRefresh(7)
+            } else if (winCondit === 6) {
+                toggleBoxRefresh(2)
+                toggleBoxRefresh(5)
+                toggleBoxRefresh(8)
+              } else if (winCondit === 7) {
+                  toggleBoxRefresh(0)
+                  toggleBoxRefresh(4)
+                  toggleBoxRefresh(8)
+                } else if (winCondit === 8) {
+                    toggleBoxRefresh(2)
+                    toggleBoxRefresh(4)
+                    toggleBoxRefresh(6)
+                  }
+
   }
 
   resetGame() {
+    game.winner = false;
     clearGameGrid();
     disableBoxes();
-    game.winner = false;
     enableBoxes();
 
 
