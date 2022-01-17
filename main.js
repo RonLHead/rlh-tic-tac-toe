@@ -31,24 +31,12 @@ function playerClick(e) {
   threeInARow();
 }
 
-function tieGame() {
-  game.checkForTieGame();
-
-  if (game.draw) {
-    whoseTurn.innerText = "It's a Tie! Play Again.";
-    tieGameDisplay();
-    setTimeout(function () {
-      game.resetGame();
-      tieGameDisplay();
-    }, 6000);
-  }
-}
-
-function tieGameDisplay() {
+function clearGameGrid() {
   for (var i = 0; i < boxes.length; i++) {
-    toggleBoxHighlight(i);
+    boxes[i].innerText = "";
   }
 }
+
 function disableBoxes() {
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].disabled = true;
@@ -73,11 +61,6 @@ function whichPlayersTurn() {
   }
 }
 
-function clearGameGrid() {
-  for (var i = 0; i < boxes.length; i++) {
-    boxes[i].innerText = "";
-  }
-}
 
 function playerOneWinsDisplay() {
   game.winner = game.player1.id;
@@ -88,9 +71,6 @@ function playerOneWinsDisplay() {
   highlightScore(p1Score);
 }
 
-function highlightScore(playerScore) {
-  playerScore.classList.toggle("highlight");
-}
 
 function playerTwoWinsDisplay() {
   game.winner = game.player2.id;
@@ -106,6 +86,15 @@ function toggleBoxHighlight(index) {
   boxes[index].classList.toggle("win-background");
 }
 
+function highlightScore(playerScore) {
+  playerScore.classList.toggle("highlight");
+}
+
+function tieGameHighlight() {
+  for (var i = 0; i < boxes.length; i++) {
+    toggleBoxHighlight(i);
+  }
+}
 function threeInARow() {
   // debugger;
 
@@ -271,5 +260,18 @@ function threeInARow() {
         highlightScore(p2Score);
       }, 6000);
     }
+  }
+}
+
+function tieGame() {
+  game.checkForTieGame();
+
+  if (game.draw) {
+    whoseTurn.innerText = "It's a Tie! Play Again.";
+    tieGameHighlight();
+    setTimeout(function () {
+      game.resetGame();
+      tieGameHighlight();
+    }, 6000);
   }
 }
