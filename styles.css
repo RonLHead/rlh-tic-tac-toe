@@ -40,8 +40,6 @@ p {
 .container {
   background-color: #a5a8b0;
   padding: 20px;
-  margin-top: 30px;
-  /* border: 1px solid; */
 }
 
 .player-container {
@@ -54,7 +52,6 @@ p {
   padding-bottom: 10px;
   padding-left: none;
   padding-right: none;
-  /* border-radius: 10px; */
   border: 3px solid;
 }
 
@@ -76,7 +73,7 @@ p {
   font-size: 100px;
   line-height: 100px;
   /* border-radius: 10px; */
-  /* border: 1px solid; */
+
   color: #f2f2f2;
 }
 
