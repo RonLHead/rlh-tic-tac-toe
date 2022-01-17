@@ -12,27 +12,26 @@ for (var i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener("click", playerClick);
 }
 
-debugger;
 function playerClick(e) {
   var location = e.target;
 
   if (location.innerText === "") {
     if (game.player1Turn) {
       location.innerText = game.player1.token.toString();
-      game.boxesFilled += 1;
+      game.filledBoxes += 1;
       game.nextPlayer(game.player1, game.player2);
       whichPlayersTurn();
 
     } else {
       location.innerText = game.player2.token.toString();
-      game.boxesFilled += 1;
+      game.filledBoxes += 1;
       game.nextPlayer(game.player1, game.player2);
       whichPlayersTurn();
     }
   }
-  threeInARow();
   tieGame();
-  // console.log(game.allBoxesFilled)
+  threeInARow();
+  console.log(game.filledBoxes)
 }
 
 function tieGame() {
@@ -40,7 +39,17 @@ function tieGame() {
 
   if (game.draw) {
     whoseTurn.innerText = "It's a Tie! Play Again.";
-    game.resetGame();
+    tieGameDisplay()
+    setTimeout(function() {
+      game.resetGame();
+      tieGameDisplay()
+    }, 6000)
+  }
+}
+
+function tieGameDisplay() {
+  for(var i = 0; i < boxes.length; i++) {
+    toggleBoxWin(i)
   }
 }
 function disableBoxes() {
@@ -117,16 +126,19 @@ function toggleBoxRefresh(index) {
 }
 
 function threeInARow() {
-  // debugger;
+  debugger;
+  // for (var i = 0; i < boxes.length; i++) {
+  //   game.filledBoxes[i] = boxes[i].innerText;
+  // }
   game.areBoxesFilled()
 
   if (game.winConditions(game.areBoxesFilled) === 1) {
     if (game.areBoxesFilled[0] === game.player1.token) {
-      game.winningRow(game.winConditions(game.areBoxesFilled))
+      game.winningRow(game.winConditions(game.areBoxesFilled())
       playerOneWinsDisplay();
       setTimeout(function() {
         game.resetGame();
-        game.clearWinningRow(game.winConditions(game.areBoxesFilled));
+        game.clearWinningRow(game.winConditions(game.areBoxesFilled());
         highlightScore(p1Score)
       }, 6000)
 

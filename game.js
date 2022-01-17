@@ -11,7 +11,8 @@ class Game {
     this.p1Wins = [];
     this.p2Wins = [];
 
-    this.filledBoxes = [];
+    this.filledBoxes = 0;
+    this.filledGrid = []
   }
 
 
@@ -23,30 +24,30 @@ class Game {
     this.player2Turn = !this.player2Turn;
   }
 
-  winConditions(gameArray) {
-    if(gameArray[0] === gameArray[1]
-      && gameArray[1] === gameArray[2] && gameArray[0] != '') {
+  winConditions(boxes) {
+    if(boxes[0] === boxes[1]
+      && boxes[1] === boxes[2] && boxes[0] != '') {
       return 1;
-    } else if (gameArray[3] === gameArray[4] &&
-    gameArray[4] === gameArray[5] && gameArray[3] != '') {
+    } else if (boxes[3] === boxes[4] &&
+    boxes[4] === boxes[5] && boxes[3] != '') {
       return 2;
-    } else if (gameArray[6] === gameArray[7] &&
-    gameArray[7] === gameArray[8] && gameArray[6] != '') {
+    } else if (boxes[6] === boxes[7] &&
+    boxes[7] === boxes[8] && boxes[6] != '') {
       return 3;
-    } else if (gameArray[0] === gameArray[3] &&
-    gameArray[3] === gameArray[6] && gameArray[0] != '') {
+    } else if (boxes[0] === boxes[3] &&
+    boxes[3] === boxes[6] && boxes[0] != '') {
       return 4;
-    } else if (gameArray[1] === gameArray[4] &&
-    gameArray[4] === gameArray[7] && gameArray[1] != '') {
+    } else if (boxes[1] === boxes[4] &&
+    boxes[4] === boxes[7] && boxes[1] != '') {
       return 5;
-    } else if (gameArray[2] === gameArray[5] &&
-    gameArray[5] === gameArray[8] && gameArray[2] != '') {
+    } else if (boxes[2] === boxes[5] &&
+    boxes[5] === boxes[8] && boxes[2] != '') {
       return 6;
-    } else if (gameArray[0] === gameArray[4] &&
-    gameArray[4] === gameArray[8] && gameArray[0] != '') {
+    } else if (boxes[0] === boxes[4] &&
+    boxes[4] === boxes[8] && boxes[0] != '') {
       return 7;
-    } else if (gameArray[2] === gameArray[4] &&
-    gameArray[4] === gameArray[6] && gameArray[2] != '') {
+    } else if (boxes[2] === boxes[4] &&
+    boxes[4] === boxes[6] && boxes[2] != '') {
       return 8;
     }
   }
@@ -134,15 +135,15 @@ class Game {
   }
 
   checkForTieGame() {
-    if(this.filledBoxes.length === 9 & !this.winner) {
-      this.draw = true
+
+    if(this.filledBoxes === 9 & !this.winner) {
+      return this.draw = true
     }
   }
 
   areBoxesFilled() {
-
     for (var i = 0; i < boxes.length; i++) {
-      this.filledBoxes[i] = boxes[i].innerText;
+      game.filledGrid[i] = boxes[i].innerText;
     }
   }
 
