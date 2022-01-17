@@ -52,87 +52,52 @@ class Game {
     }
   }
 
-  winningRow(winCondit) {
+  toggleWinningRowHighlight(winCondit) {
     if (winCondit === 1) {
       disableBoxes()
-      toggleBoxWin(0)
-      toggleBoxWin(1)
-      toggleBoxWin(2)
+      toggleBoxHighlight(0)
+      toggleBoxHighlight(1)
+      toggleBoxHighlight(2)
     } else if (winCondit === 2) {
         disableBoxes()
-        toggleBoxWin(3)
-        toggleBoxWin(4)
-        toggleBoxWin(5)
+        toggleBoxHighlight(3)
+        toggleBoxHighlight(4)
+        toggleBoxHighlight(5)
       } else if (winCondit === 3) {
           disableBoxes()
-          toggleBoxWin(6)
-          toggleBoxWin(7)
-          toggleBoxWin(8)
+          toggleBoxHighlight(6)
+          toggleBoxHighlight(7)
+          toggleBoxHighlight(8)
         } else if (winCondit === 4) {
             disableBoxes()
-            toggleBoxWin(0)
-            toggleBoxWin(3)
-            toggleBoxWin(6)
+            toggleBoxHighlight(0)
+            toggleBoxHighlight(3)
+            toggleBoxHighlight(6)
           } else if (winCondit === 5) {
               disableBoxes()
-              toggleBoxWin(1)
-              toggleBoxWin(4)
-              toggleBoxWin(7)
+              toggleBoxHighlight(1)
+              toggleBoxHighlight(4)
+              toggleBoxHighlight(7)
             } else if (winCondit === 6) {
                 disableBoxes()
-                toggleBoxWin(2)
-                toggleBoxWin(5)
-                toggleBoxWin(8)
+                toggleBoxHighlight(2)
+                toggleBoxHighlight(5)
+                toggleBoxHighlight(8)
               } else if (winCondit === 7) {
                   disableBoxes()
-                  toggleBoxWin(0)
-                  toggleBoxWin(4)
-                  toggleBoxWin(8)
+                  toggleBoxHighlight(0)
+                  toggleBoxHighlight(4)
+                  toggleBoxHighlight(8)
                 } else if (winCondit === 8) {
                     disableBoxes()
-                    toggleBoxWin(2)
-                    toggleBoxWin(4)
-                    toggleBoxWin(6)
+                    toggleBoxHighlight(2)
+                    toggleBoxHighlight(4)
+                    toggleBoxHighlight(6)
                   }
 
   }
 
-  clearWinningRow(winCondit) {
-    if(winCondit === 1) {
-      toggleBoxRefresh(0)
-      toggleBoxRefresh(1)
-      toggleBoxRefresh(2)
-    } else if (winCondit === 2) {
-        toggleBoxRefresh(3)
-        toggleBoxRefresh(4)
-        toggleBoxRefresh(5)
-      } else if (winCondit === 3) {
-          toggleBoxRefresh(6)
-          toggleBoxRefresh(7)
-          toggleBoxRefresh(8)
-        } else if (winCondit === 4) {
-            toggleBoxRefresh(0)
-            toggleBoxRefresh(3)
-            toggleBoxRefresh(6)
-          } else if (winCondit === 5) {
-              toggleBoxRefresh(1)
-              toggleBoxRefresh(4)
-              toggleBoxRefresh(7)
-            } else if (winCondit === 6) {
-                toggleBoxRefresh(2)
-                toggleBoxRefresh(5)
-                toggleBoxRefresh(8)
-              } else if (winCondit === 7) {
-                  toggleBoxRefresh(0)
-                  toggleBoxRefresh(4)
-                  toggleBoxRefresh(8)
-                } else if (winCondit === 8) {
-                    toggleBoxRefresh(2)
-                    toggleBoxRefresh(4)
-                    toggleBoxRefresh(6)
-                  }
-
-  }
+  
 
   checkForTieGame() {
 
@@ -149,18 +114,11 @@ class Game {
 
   resetGame() {
     game.winner = false;
-    game.boxesFilled = 0;
+    game.draw = false;
+    this.filledBoxes = 0;
+    this.filledGrid = []
     clearGameGrid();
     disableBoxes();
     enableBoxes();
-
-
-    // setTimeout("whichPlayersTurn()", 3000)
-
-    // setTimeout(function() {
-    //   p1Container.classList.remove("animation-short")
-    //   p2Container.classList.remove("animation-short")
-    //
-    // }, 3000 )
   }
 }
