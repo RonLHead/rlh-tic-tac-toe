@@ -6,7 +6,7 @@
 
 body {
   color: #f4f6fe;
-  text-shadow: 2px 2px 4px #000000;
+  /* text-shadow: 2px 2px 4px #000000; */
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -14,17 +14,17 @@ body {
   justify-content: center;
   background-color: #d6d8dd;
   text-align: center;
+  letter-spacing: 1px;
+
 }
 
 h1 {
   font-size: 80px;
-  letter-spacing: 1px;
 }
 
 h2 {
   font-size: 40px;
   font-stretch: ultra-expanded;
-  letter-spacing: 1px;
 }
 
 p {
@@ -79,7 +79,7 @@ p {
   line-height: 100px;
   border-radius: 10px;
   border: 1px solid;
-  text-shadow: 2px 2px 4px #000000;
+  /* text-shadow: 2px 2px 4px #000000; */
   color: #f2f2f2;
 }
 
@@ -104,19 +104,23 @@ p {
   font-size: 25px;
 }
 
-.highlight {
-  animation-name: highlight;
-  animation-duration: 4s;
-  animation-delay: 1s;
-  animation-iteration-count: infinite;
-}
-
 .win-background {
   box-shadow: 0 0 5px 5px white;
 }
 
 .game-square:hover {
   background-color: #777a84;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.highlight {
+  animation-name: highlight;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes highlight {
