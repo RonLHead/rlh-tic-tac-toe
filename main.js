@@ -9,7 +9,7 @@ var boxes = document.querySelectorAll(".game-square");
 var gameBoard = document.querySelector(".game-grid");
 var p1 = document.getElementById("p1")
 var p2 = document.getElementById("p2")
-var p1Container = document.querySelector(".p-one")
+var playerContainer = document.querySelector("player-container")
 
 for (var i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener("click", playerClick);
@@ -71,8 +71,6 @@ function clearGameGrid() {
   // p1Container.id.remove("highlight")
   // p2Container.id.remove("highlight")
 
-
-
 }
 
 function tieGame() {
@@ -96,14 +94,12 @@ function playerOneWinsDisplay() {
   game.player1Score = game.player1.wins.length;
   whoseTurn.innerText = "Player One Wins!";
   p1Score.innerText = `Score: ${game.player1Score}`;
-  // p1.classList.add("highlight")
-  p1Container.classList.toggle("highlight")
+  highlightScore(p1Score)
 
 }
 
-function clearPlayerOneWin() {
-  // p1.classList.remove("highlight");
-  p1Container.classList.toggle("highlight")
+function highlightScore(playerScore) {
+  playerScore.classList.toggle("highlight")
 }
 
 function playerTwoWinsDisplay() {
@@ -112,22 +108,8 @@ function playerTwoWinsDisplay() {
   game.player2Score = game.player2.wins.length;
   whoseTurn.innerText = "Player Two Wins!";
   p2Score.innerText = `Score: ${game.player2Score}`;
-  p2.classList.add("highlight")
-  p
 
 }
-
-// function winningRow() {
-//   // if(game.winConditions === 1) {
-//     disableBoxes()
-//     // boxes[0].innerText = `${game.player1.token}`;
-//     boxes[0].classList.remove("square-background")
-//     boxes[0].classList.add("win-background")
-//     // boxes[1].classList.add("winBackground");
-//     // boxes[2].classList.add("winBackground");
-//
-//   // }
-// }
 
 function toggleBoxWin(index) {
   // boxes[index].classList.toggle("square-background")
@@ -155,7 +137,7 @@ function threeInARow() {
       setTimeout(function() {
         game.resetGame();
         game.clearWinningRow(game.winConditions(game.areBoxesFilled));
-        clearPlayerOneWin()
+        highlightScore(p1Score)
       }, 6000)
 
     } else if (game.areBoxesFilled[0] === game.player2.token) {
@@ -181,11 +163,11 @@ function threeInARow() {
     } else if (game.areBoxesFilled[3] === game.player2.token) {
       console.log(game.winConditions(game.areBoxesFilled))
       game.winningRow(game.winConditions(game.areBoxesFilled))
-
       playerTwoWinsDisplay();
       setTimeout(function() {
         game.resetGame();
         game.clearWinningRow(game.winConditions(game.areBoxesFilled));
+
       }, 6000)
     }
   } else if (game.winConditions(game.areBoxesFilled) === 3) {

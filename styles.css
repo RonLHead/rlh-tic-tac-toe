@@ -70,7 +70,7 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
+  align-items: baseline;
   background: linear-gradient(to bottom, #303136, #484951), fixed;
 
   /* opacity: 80%; */
