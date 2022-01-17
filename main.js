@@ -102,6 +102,7 @@ function playerTwoWinsDisplay() {
   game.player2Score = game.player2.wins.length;
   whoseTurn.innerText = "Player Two Wins!";
   p2Score.innerText = `Score: ${game.player2Score}`;
+  highlightScore(p2Score)
 
 }
 
@@ -134,7 +135,7 @@ function threeInARow() {
       setTimeout(function() {
         game.resetGame();
         game.toggleWinningRowHighlight(1);
-        highlightScore(p1Score)
+        highlightScore(p2Score)
       }, 6000)
     }
   } else if (game.winConditions(game.filledGrid) === 2) {
@@ -154,7 +155,7 @@ function threeInARow() {
       setTimeout(function() {
         game.resetGame();
         game.toggleWinningRowHighlight(2);
-        highlightScore(p1Score)
+        highlightScore(p2Score)
       }, 6000)
     }
   } else if (game.winConditions(game.filledGrid) === 3) {
@@ -167,15 +168,16 @@ function threeInARow() {
         game.toggleWinningRowHighlight(3);
         highlightScore(p1Score)
       }, 6000)
-    } else if (game.filledGrid[6] === game.player2.token)
+    } else if (game.filledGrid[6] === game.player2.token) {
     console.log(game.winConditions(game.filledGrid))
       game.toggleWinningRowHighlight(3)
       playerTwoWinsDisplay();
       setTimeout(function() {
         game.resetGame();
         game.toggleWinningRowHighlight(3);
-        highlightScore(p1Score)
+        highlightScore(p2Score)
       }, 6000)
+}
     } else if (game.winConditions(game.filledGrid) === 4) {
     if (game.filledGrid[0] === game.player1.token) {
       console.log(game.winConditions(game.filledGrid))
@@ -193,7 +195,7 @@ function threeInARow() {
       setTimeout(function() {
         game.resetGame();
         game.toggleWinningRowHighlight(4);
-        highlightScore(p1Score)
+        highlightScore(p2Score)
       }, 6000)
     }
   } else if (game.winConditions(game.filledGrid) === 5) {
@@ -213,7 +215,7 @@ function threeInARow() {
       setTimeout(function() {
         game.resetGame();
         game.toggleWinningRowHighlight(5);
-        highlightScore(p1Score)
+        highlightScore(p2Score)
       }, 6000)
     }
   } else if (game.winConditions(game.filledGrid) === 6) {
@@ -233,7 +235,7 @@ function threeInARow() {
       setTimeout(function() {
         game.resetGame();
         game.toggleWinningRowHighlight(6);
-        highlightScore(p1Score)
+        highlightScore(p2Score)
       }, 6000)
     }
   } else if (game.winConditions(game.filledGrid) === 7) {
@@ -253,7 +255,7 @@ function threeInARow() {
       setTimeout(function() {
         game.resetGame();
         game.toggleWinningRowHighlight(7);
-        highlightScore(p1Score)
+        highlightScore(p2Score)
       }, 6000)
     }
   }  else if (game.winConditions(game.filledGrid) === 8) {
@@ -273,7 +275,7 @@ function threeInARow() {
       setTimeout(function() {
         game.resetGame();
         game.toggleWinningRowHighlight(8);
-        highlightScore(p1Score)
+        highlightScore(p2Score)
       }, 6000)
     }
   }

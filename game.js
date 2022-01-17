@@ -17,9 +17,6 @@ class Game {
 
 
   nextPlayer(player1, player2) {
-    // player1.id = !player1.id;
-    // player2.id = !player2.id;
-
     this.player1Turn = !this.player1Turn;
     this.player2Turn = !this.player2Turn;
   }
@@ -97,7 +94,7 @@ class Game {
 
   }
 
-  
+
 
   checkForTieGame() {
 
