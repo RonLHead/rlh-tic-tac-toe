@@ -27,8 +27,8 @@ function playerClick(e) {
       whichPlayersTurn();
     }
   }
-  tieGame();
-  threeInARow();
+  tieGameDisplay();
+  checkForThreeInARow();
 }
 
 function clearGameGrid() {
@@ -99,9 +99,9 @@ function tieGameHighlight() {
     toggleBoxHighlight(i);
   }
 }
-function threeInARow() {
-  // debugger;
 
+function checkForThreeInARow() {
+  // debugger;
   game.areBoxesFilled();
 
   if (game.winConditions(game.filledGrid) === 1) {
@@ -267,7 +267,7 @@ function threeInARow() {
   }
 }
 
-function tieGame() {
+function tieGameDisplay() {
   game.checkForTieGame();
 
   if (game.draw) {
