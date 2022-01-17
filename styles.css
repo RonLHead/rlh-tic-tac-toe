@@ -56,7 +56,6 @@ p {
 }
 
 .game-grid {
-  background: #a5a8b0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -72,8 +71,6 @@ p {
   cursor: pointer;
   font-size: 100px;
   line-height: 100px;
-  /* border-radius: 10px; */
-
   color: #f2f2f2;
 }
 
