@@ -7,11 +7,11 @@ class Game {
     this.player1Turn = true;
     this.player2Turn = false;
     this.draw = false;
-    this.winner = null;
+    this.winner = false;
     this.p1Wins = [];
     this.p2Wins = [];
 
-    this.areBoxesFilled = [];
+    this.filledBoxes = [];
   }
 
 
@@ -133,8 +133,22 @@ class Game {
 
   }
 
+  checkForTieGame() {
+    if(this.filledBoxes.length === 9 & !this.winner) {
+      this.draw = true
+    }
+  }
+
+  areBoxesFilled() {
+
+    for (var i = 0; i < boxes.length; i++) {
+      this.filledBoxes[i] = boxes[i].innerText;
+    }
+  }
+
   resetGame() {
     game.winner = false;
+    game.boxesFilled = 0;
     clearGameGrid();
     disableBoxes();
     enableBoxes();

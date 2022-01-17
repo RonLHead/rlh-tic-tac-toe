@@ -1,5 +1,4 @@
 
-// debugger;
 var game = new Game();
 
 var whoseTurn = document.getElementById("whoseTurn");
@@ -7,37 +6,43 @@ var p1Score = document.getElementById("p1Score");
 var p2Score = document.getElementById("p2Score");
 var boxes = document.querySelectorAll(".game-square");
 var gameBoard = document.querySelector(".game-grid");
-var p1 = document.getElementById("p1")
-var p2 = document.getElementById("p2")
 var playerContainer = document.querySelector("player-container")
 
 for (var i = 0; i < boxes.length; i++) {
   boxes[i].addEventListener("click", playerClick);
 }
 
+debugger;
 function playerClick(e) {
   var location = e.target;
 
   if (location.innerText === "") {
     if (game.player1Turn) {
       location.innerText = game.player1.token.toString();
-      //Fix below to flush after a game is won
-      // location.classList.add(game.player1.id)
+      game.boxesFilled += 1;
       game.nextPlayer(game.player1, game.player2);
       whichPlayersTurn();
 
     } else {
       location.innerText = game.player2.token.toString();
-      // location.classList.add(game.player2.id)
+      game.boxesFilled += 1;
       game.nextPlayer(game.player1, game.player2);
       whichPlayersTurn();
     }
   }
   threeInARow();
   tieGame();
-
+  // console.log(game.allBoxesFilled)
 }
 
+function tieGame() {
+  game.checkForTieGame();
+
+  if (game.draw) {
+    whoseTurn.innerText = "It's a Tie! Play Again.";
+    game.resetGame();
+  }
+}
 function disableBoxes() {
   for(var i =0; i < boxes.length; i++) {
     // console.log(boxes)
@@ -73,20 +78,7 @@ function clearGameGrid() {
 
 }
 
-function tieGame() {
-  var allFilled = 0;
-  for (var i = 0; i < boxes.length; i++) {
-    if (boxes[i].innerText) {
-      allFilled += 1;
-    }
-  }
 
-  if (allFilled === 9 && !game.winner) {
-    game.draw = true;
-    whoseTurn.innerText = "It's a Tie! Play Again.";
-    game.resetGame();
-  }
-}
 
 function playerOneWinsDisplay() {
   game.winner = game.player1.id;
@@ -126,9 +118,7 @@ function toggleBoxRefresh(index) {
 
 function threeInARow() {
   // debugger;
-  for (var i = 0; i < boxes.length; i++) {
-    game.areBoxesFilled[i] = boxes[i].innerText;
-  }
+  game.areBoxesFilled()
 
   if (game.winConditions(game.areBoxesFilled) === 1) {
     if (game.areBoxesFilled[0] === game.player1.token) {
