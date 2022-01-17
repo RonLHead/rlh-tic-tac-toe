@@ -10,7 +10,7 @@ class Game {
     this.winner = null;
     this.p1Wins = [];
     this.p2Wins = [];
-    
+
     this.areBoxesFilled = [];
   }
 
@@ -24,9 +24,6 @@ class Game {
   }
 
   winConditions(gameArray) {
-    // debugger
-    //boxes[1].innerText
-
     if(gameArray[0] === gameArray[1]
       && gameArray[1] === gameArray[2] && gameArray[0] != '') {
       return 1;
@@ -54,7 +51,23 @@ class Game {
     }
   }
 
+  winningRow(winCondit) {
+    if(winCondit === 1) {
+      disableBoxes()
+      toggleBoxWin(0)
+      toggleBoxWin(1)
+      toggleBoxWin(2)
 
+    }
+  }
+
+  clearWinningRow(winCondit) {
+    if(winCondit === 1) {
+      toggleBoxRefresh(0)
+      toggleBoxRefresh(1)
+      toggleBoxRefresh(2)
+    }
+  }
 
   resetGame() {
     clearGameGrid();

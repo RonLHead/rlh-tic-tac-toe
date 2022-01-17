@@ -42,7 +42,7 @@ p {
   animation-name: highlight;
   animation-duration: 4s;
   animation-delay: 1s;
-  animation-iteration-count: 8s;
+  animation-iteration-count: infinite;
 }
 .game-board {
   background: linear-gradient(to bottom, #3c3f49, #53565c), fixed;
@@ -60,6 +60,10 @@ p {
   border: #f4f6fe 1px solid;
   border-radius: 25px;
 
+}
+
+.token {
+  font-size:25px;;
 }
 
 .player-container {
@@ -96,10 +100,18 @@ p {
   margin-right: auto;
 }
 
+.win-background {
+  background-color: #fff19a;
+
+}
+
+.square-background {
+  background-color: #3c3f49;
+
+}
 .game-square {
   height: 100px;
   weight: 100px;
-  background-color: #3c3f49;
   /* background: linear-gradient(to bottom, #3c3f49, #53565c), fixed; */
   cursor: pointer;
   /* transition: 0.2s; */
@@ -135,21 +147,4 @@ p {
   100% {
     color: #f4f6fe;
   }
-}
-
-@keyframes highlight2
- {
-  0% {
-    color: #red;
-  }
-  50% {
-    color: #white;
-  }
-  100% {
-    color: #red;
-  }
-}
-
-.disabled {
-  display: none;
 }
