@@ -6,7 +6,7 @@
 
 body {
   color: #f4f6fe;
-text-shadow: 2px 2px 4px #000000;
+  text-shadow: 2px 2px 4px #000000;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -26,11 +26,7 @@ h2 {
   font-size: 40px;
   font-stretch: ultra-expanded;
   letter-spacing: 1px;
-
 }
-
-
-
 
 p {
   /* width: 100px; */
@@ -59,11 +55,10 @@ p {
   margin-top: 30px;
   border: #f4f6fe 1px solid;
   border-radius: 25px;
-
 }
 
 .token {
-  font-size:25px;;
+  font-size: 25px;
 }
 
 .player-container {
@@ -102,13 +97,12 @@ p {
 
 .win-background {
   box-shadow: 0 0 5px 5px white;
-    /* in order: x offset, y offset, blur size, spread size, color */
-    /* blur size and spread size are optional (they default to 0) */
+  /* in order: x offset, y offset, blur size, spread size, color */
+  /* blur size and spread size are optional (they default to 0) */
 }
 
 .square-background {
   background-color: #3c3f49;
-
 }
 .game-square {
   height: 100px;
@@ -122,7 +116,7 @@ p {
   border-radius: 10px;
   border: #f4f6fe 1px solid;
   text-shadow: 2px 2px 4px #000000;
-  color: #f2f2f2
+  color: #f2f2f2;
 }
 
 .player-one-token {
