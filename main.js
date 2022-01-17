@@ -101,12 +101,10 @@ function tieGameHighlight() {
 }
 
 function checkForThreeInARow() {
-  // debugger;
   game.areBoxesFilled();
 
   if (game.winConditions(game.filledGrid) === 1) {
     if (game.filledGrid[0] === game.player1.token) {
-      console.log(game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(1);
       playerOneWinsDisplay();
       setTimeout(function () {
@@ -115,7 +113,7 @@ function checkForThreeInARow() {
         highlightScore(p1Score);
       }, 6000);
     } else if (game.filledGrid[0] === game.player2.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(1);
       playerTwoWinsDisplay();
       setTimeout(function () {
@@ -126,7 +124,7 @@ function checkForThreeInARow() {
     }
   } else if (game.winConditions(game.filledGrid) === 2) {
     if (game.filledGrid[3] === game.player1.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(2);
       playerOneWinsDisplay();
       setTimeout(function () {
@@ -135,7 +133,7 @@ function checkForThreeInARow() {
         highlightScore(p1Score);
       }, 6000);
     } else if (game.filledGrid[3] === game.player2.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(2);
       playerTwoWinsDisplay();
       setTimeout(function () {
@@ -146,7 +144,7 @@ function checkForThreeInARow() {
     }
   } else if (game.winConditions(game.filledGrid) === 3) {
     if (game.filledGrid[6] === game.player1.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(3);
       playerOneWinsDisplay();
       setTimeout(function () {
@@ -155,7 +153,7 @@ function checkForThreeInARow() {
         highlightScore(p1Score);
       }, 6000);
     } else if (game.filledGrid[6] === game.player2.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(3);
       playerTwoWinsDisplay();
       setTimeout(function () {
@@ -166,7 +164,7 @@ function checkForThreeInARow() {
     }
   } else if (game.winConditions(game.filledGrid) === 4) {
     if (game.filledGrid[0] === game.player1.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(4);
       playerOneWinsDisplay();
       setTimeout(function () {
@@ -175,7 +173,7 @@ function checkForThreeInARow() {
         highlightScore(p1Score);
       }, 6000);
     } else if (game.filledGrid[0] === game.player2.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(4);
       playerTwoWinsDisplay();
       setTimeout(function () {
@@ -186,7 +184,7 @@ function checkForThreeInARow() {
     }
   } else if (game.winConditions(game.filledGrid) === 5) {
     if (game.filledGrid[1] === game.player1.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(5);
       playerOneWinsDisplay();
       setTimeout(function () {
@@ -195,7 +193,7 @@ function checkForThreeInARow() {
         highlightScore(p1Score);
       }, 6000);
     } else if (game.filledGrid[1] === game.player2.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(5);
       playerTwoWinsDisplay();
       setTimeout(function () {
@@ -206,7 +204,7 @@ function checkForThreeInARow() {
     }
   } else if (game.winConditions(game.filledGrid) === 6) {
     if (game.filledGrid[2] === game.player1.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(6);
       playerOneWinsDisplay();
       setTimeout(function () {
@@ -215,7 +213,7 @@ function checkForThreeInARow() {
         highlightScore(p1Score);
       }, 6000);
     } else if (game.filledGrid[2] === game.player2.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(6);
       playerTwoWinsDisplay();
       setTimeout(function () {
@@ -225,7 +223,7 @@ function checkForThreeInARow() {
       }, 6000);
     }
   } else if (game.winConditions(game.filledGrid) === 7) {
-    console.log(game.winConditions(game.filledGrid));
+    (game.winConditions(game.filledGrid));
     if (game.filledGrid[0] === game.player1.token) {
       game.toggleWinningRowHighlight(7);
       playerOneWinsDisplay();
@@ -235,7 +233,7 @@ function checkForThreeInARow() {
         highlightScore(p1Score);
       }, 6000);
     } else if (game.filledGrid[0] === game.player2.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(7);
       playerTwoWinsDisplay();
       setTimeout(function () {
@@ -246,7 +244,7 @@ function checkForThreeInARow() {
     }
   } else if (game.winConditions(game.filledGrid) === 8) {
     if (game.filledGrid[2] === game.player1.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(8);
       playerOneWinsDisplay();
       setTimeout(function () {
@@ -255,7 +253,7 @@ function checkForThreeInARow() {
         highlightScore(p1Score);
       }, 6000);
     } else if (game.filledGrid[2] === game.player2.token) {
-      console.log(game.winConditions(game.filledGrid));
+      (game.winConditions(game.filledGrid));
       game.toggleWinningRowHighlight(8);
       playerTwoWinsDisplay();
       setTimeout(function () {
