@@ -1,73 +1,148 @@
 class Game {
-  constructor(player1, playe2) {
+  constructor() {
+    this.player1 = new Player("x", String.fromCodePoint(0x2734), []);
+    this.player2 = new Player("y", String.fromCodePoint(0x25fc), []);
     this.player1Score = 0;
     this.player2Score = 0;
     this.player1Turn = true;
     this.player2Turn = false;
     this.draw = false;
     this.winner = false;
+    this.p1Wins = [];
+    this.p2Wins = [];
+
+    this.filledBoxes = 0;
+    this.filledGrid = [];
   }
 
   nextPlayer(player1, player2) {
-    player1.id = !player1.id;
-    player2.id = !player2.id;
-
-    this.player1Turn = player1.id;
-    this.player2Turn = player2.id;
+    this.player1Turn = !this.player1Turn;
+    this.player2Turn = !this.player2Turn;
   }
 
-  winConditions(gameArray) {
-    // debugger
+  whichPlayerWon(player) {
+    if (player === game.player1) {
+      game.winner = game.player1.id;
+      game.player1.wins.push(game.player1.token);
+      game.player1Score = game.player1.wins.length;
+    } else {
+      game.winner = game.player2.id;
+      game.player2.wins.push(game.player2.token);
+      game.player2Score = game.player2.wins.length;
+    }
+  }
 
-    if(gameArray[0] === gameArray[1]
-      && gameArray[1] === gameArray[2] && gameArray[0] != '') {
+  winConditions(boxes) {
+    if (boxes[0] === boxes[1] && boxes[1] === boxes[2] && boxes[0] != "") {
       return 1;
-    } else if (gameArray[3] === gameArray[4] &&
-    gameArray[4] === gameArray[5] && gameArray[3] != '') {
+    } else if (
+      boxes[3] === boxes[4] &&
+      boxes[4] === boxes[5] &&
+      boxes[3] != ""
+    ) {
       return 2;
-    } else if (gameArray[6] === gameArray[7] &&
-    gameArray[7] === gameArray[8] && gameArray[6] != '') {
+    } else if (
+      boxes[6] === boxes[7] &&
+      boxes[7] === boxes[8] &&
+      boxes[6] != ""
+    ) {
       return 3;
-    } else if (gameArray[0] === gameArray[3] &&
-    gameArray[3] === gameArray[6] && gameArray[0] != '') {
+    } else if (
+      boxes[0] === boxes[3] &&
+      boxes[3] === boxes[6] &&
+      boxes[0] != ""
+    ) {
       return 4;
-    } else if (gameArray[1] === gameArray[4] &&
-    gameArray[4] === gameArray[7] && gameArray[1] != '') {
+    } else if (
+      boxes[1] === boxes[4] &&
+      boxes[4] === boxes[7] &&
+      boxes[1] != ""
+    ) {
       return 5;
-    } else if (gameArray[2] === gameArray[5] &&
-    gameArray[5] === gameArray[8] && gameArray[2] != '') {
+    } else if (
+      boxes[2] === boxes[5] &&
+      boxes[5] === boxes[8] &&
+      boxes[2] != ""
+    ) {
       return 6;
-    } else if (gameArray[0] === gameArray[4] &&
-    gameArray[4] === gameArray[8] && gameArray[0] != '') {
+    } else if (
+      boxes[0] === boxes[4] &&
+      boxes[4] === boxes[8] &&
+      boxes[0] != ""
+    ) {
       return 7;
-    } else if (gameArray[2] === gameArray[4] &&
-    gameArray[4] === gameArray[6] && gameArray[2] != '') {
+    } else if (
+      boxes[2] === boxes[4] &&
+      boxes[4] === boxes[6] &&
+      boxes[2] != ""
+    ) {
       return 8;
     }
   }
 
+  toggleWinningRowHighlight(winCondit) {
+    if (winCondit === 1) {
+      disableBoxes();
+      toggleBoxHighlight(0);
+      toggleBoxHighlight(1);
+      toggleBoxHighlight(2);
+    } else if (winCondit === 2) {
+      disableBoxes();
+      toggleBoxHighlight(3);
+      toggleBoxHighlight(4);
+      toggleBoxHighlight(5);
+    } else if (winCondit === 3) {
+      disableBoxes();
+      toggleBoxHighlight(6);
+      toggleBoxHighlight(7);
+      toggleBoxHighlight(8);
+    } else if (winCondit === 4) {
+      disableBoxes();
+      toggleBoxHighlight(0);
+      toggleBoxHighlight(3);
+      toggleBoxHighlight(6);
+    } else if (winCondit === 5) {
+      disableBoxes();
+      toggleBoxHighlight(1);
+      toggleBoxHighlight(4);
+      toggleBoxHighlight(7);
+    } else if (winCondit === 6) {
+      disableBoxes();
+      toggleBoxHighlight(2);
+      toggleBoxHighlight(5);
+      toggleBoxHighlight(8);
+    } else if (winCondit === 7) {
+      disableBoxes();
+      toggleBoxHighlight(0);
+      toggleBoxHighlight(4);
+      toggleBoxHighlight(8);
+    } else if (winCondit === 8) {
+      disableBoxes();
+      toggleBoxHighlight(2);
+      toggleBoxHighlight(4);
+      toggleBoxHighlight(6);
+    }
+  }
 
+  checkForTieGame() {
+    if ((this.filledBoxes === 9) & !this.winner) {
+      return (this.draw = true);
+    }
+  }
+
+  areBoxesFilled() {
+    for (var i = 0; i < boxes.length; i++) {
+      game.filledGrid[i] = boxes[i].innerText;
+    }
+  }
 
   resetGame() {
+    game.winner = false;
+    game.draw = false;
+    this.filledBoxes = 0;
+    this.filledGrid = [];
     clearGameGrid();
-    for(var i =0; i < boxes.length; i++) {
-      // console.log(boxes)
-      boxes[i].disabled = true;
-    }
-    setTimeout(function(){
-      for(var i =0; i < boxes.length; i++) {
-        // console.log(boxes)
-        boxes[i].disabled = false;
-      }
-      whichPlayersTurn();
-    }, 2000);
-
-    // setTimeout("whichPlayersTurn()", 3000)
-
-    // setTimeout(function() {
-    //   p1Container.classList.remove("animation-short")
-    //   p2Container.classList.remove("animation-short")
-    //
-    // }, 3000 )
+    disableBoxes();
+    enableBoxes();
   }
 }
