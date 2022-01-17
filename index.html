@@ -1,41 +1,41 @@
 <! DOCTYLE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
-    <!-- Add link for font once establsih design for website -->
     <title>Tic-Tac-Toe</title>
   </head>
   <body>
-    <section class="game-board">
+    <section class="game-board border-color border-radius-25 text-shadow">
       <h1>Tic-Tac-Toe</h1>
-      <h2 class="sub-heading bounce">It's Player One's Turn!</h2>
-      <section class="container">
-        <article class="player-container p-one">
+      <h2 class="sub-heading highlight" id="whoseTurn">It's Player One's Turn!</h2>
+      <section class="container border-color border-size-1 border-radius-10 p-two">
+        <article class="player-container border-radius-10 player-token-size p-one">
           <p>Player One</p>
-          <p>Score: 0</p>
+          <span class="player-token-size" id="p1">&#10036;</span>
+          <p id="p1Score">Score: 0</p>
         </article>
-        <!-- <hr class = "line-divider"></hr> -->
         <article class="game-grid">
-          <article class="game-square"></article>
-          <article class="game-square"></article>
-          <article class="game-square"></article>
-          <article class="game-square"></article>
-          <article class="game-square"></article>
-          <article class="game-square"></article>
-          <article class="game-square"></article>
-          <article class="game-square"></article>
-          <article class="game-square"></article>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box1"></button>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box2"></button>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box3"></button>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box4"></button>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box5"></button>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box6"></button>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box7"></button>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box8"></button>
+          <button class="game-square square-background border-size-1 border-radius-10 text-shadow" id="box9"></button>
         </article>
-        <!-- <hr class = "line-divider"></hr> -->
-        <article class="player-container p-two">
+        <article class="player-container border-radius-10 player-token-size p-two">
           <p>Player Two</p>
-          <p>Score: 0</p>
+          <span class="player-token-size" id="p2">&#9724;</span>
+          <p id="p2Score">Score: 0</p>
         </article>
       </section>
-
     </section>
     <script type="text/javascript" src="player.js"></script>
     <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
   </body>
 </html>
