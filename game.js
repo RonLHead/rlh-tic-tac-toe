@@ -10,7 +10,6 @@ class Game {
     this.winner = false;
     this.p1Wins = [];
     this.p2Wins = [];
-
     this.filledBoxes = 0;
     this.filledGrid = [];
   }
@@ -81,46 +80,48 @@ class Game {
   }
 
   toggleWinningRowHighlight(winCondit) {
-    if (winCondit === 1) {
-      disableBoxes();
-      toggleBoxHighlight(0);
-      toggleBoxHighlight(1);
-      toggleBoxHighlight(2);
-    } else if (winCondit === 2) {
-      disableBoxes();
-      toggleBoxHighlight(3);
-      toggleBoxHighlight(4);
-      toggleBoxHighlight(5);
-    } else if (winCondit === 3) {
-      disableBoxes();
-      toggleBoxHighlight(6);
-      toggleBoxHighlight(7);
-      toggleBoxHighlight(8);
-    } else if (winCondit === 4) {
-      disableBoxes();
-      toggleBoxHighlight(0);
-      toggleBoxHighlight(3);
-      toggleBoxHighlight(6);
-    } else if (winCondit === 5) {
-      disableBoxes();
-      toggleBoxHighlight(1);
-      toggleBoxHighlight(4);
-      toggleBoxHighlight(7);
-    } else if (winCondit === 6) {
-      disableBoxes();
-      toggleBoxHighlight(2);
-      toggleBoxHighlight(5);
-      toggleBoxHighlight(8);
-    } else if (winCondit === 7) {
-      disableBoxes();
-      toggleBoxHighlight(0);
-      toggleBoxHighlight(4);
-      toggleBoxHighlight(8);
-    } else if (winCondit === 8) {
-      disableBoxes();
-      toggleBoxHighlight(2);
-      toggleBoxHighlight(4);
-      toggleBoxHighlight(6);
+    if(!game.draw) {
+      if (winCondit === 1) {
+        disableBoxes();
+        toggleBoxHighlight(0);
+        toggleBoxHighlight(1);
+        toggleBoxHighlight(2);
+      } else if (winCondit === 2) {
+        disableBoxes();
+        toggleBoxHighlight(3);
+        toggleBoxHighlight(4);
+        toggleBoxHighlight(5);
+      } else if (winCondit === 3) {
+        disableBoxes();
+        toggleBoxHighlight(6);
+        toggleBoxHighlight(7);
+        toggleBoxHighlight(8);
+      } else if (winCondit === 4) {
+        disableBoxes();
+        toggleBoxHighlight(0);
+        toggleBoxHighlight(3);
+        toggleBoxHighlight(6);
+      } else if (winCondit === 5) {
+        disableBoxes();
+        toggleBoxHighlight(1);
+        toggleBoxHighlight(4);
+        toggleBoxHighlight(7);
+      } else if (winCondit === 6) {
+        disableBoxes();
+        toggleBoxHighlight(2);
+        toggleBoxHighlight(5);
+        toggleBoxHighlight(8);
+      } else if (winCondit === 7) {
+        disableBoxes();
+        toggleBoxHighlight(0);
+        toggleBoxHighlight(4);
+        toggleBoxHighlight(8);
+      } else if (winCondit === 8) {
+        disableBoxes();
+        toggleBoxHighlight(2);
+        toggleBoxHighlight(4);
+        toggleBoxHighlight(6);
+      }
     }
   }
 
