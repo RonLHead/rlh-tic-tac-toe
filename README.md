@@ -1,6 +1,6 @@
 # Tic-Tac-Toe
 <p align="center">
-  <img width=400 height=600 src="tic-tac-toe-main.jpg">
+  <img width=400 height=600 src=".assets/tic-tac-toe-main.jpg">
 </p>
 
 This project houses a simple game of tic-tac-toe to be played on a web browser. The game takes two players (Player One, who plays first, and Player Two), and displays a 3 x 3 grid of boxes. On each player's turn they can click on any empty box, which will display their unique token. The winner is the first player to have 3 tokens in a row in any direction (horizontal, vertical, or diagonal). If all boxes are filled but no player has three in a row, then the game is a draw.
