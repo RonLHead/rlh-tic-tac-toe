@@ -1,7 +1,9 @@
 # Tic-Tac-Toe
+<p align="center">
+  <img width=400 height=600 src=".assets/tic-tac-toe-main.jpg">
+</p>
 
-//Add image
-This project houses a simple game of tic-tac-toe to be played on a web browser. The game takes two players (Player One, who plays first, and Player Two), and displays a 3 x 3 grid of boxes. On each player's turn they can click on any empty box, which will display their unique token. The game determines the winner when the first player has 3 tokens in a row in any direction (horizontal, vertical, or diagonal). If all boxes are filled but no player has three in a row, the game is a draw.
+This project houses a simple game of tic-tac-toe to be played on a web browser. The game takes two players (Player One, who plays first, and Player Two), and displays a 3 x 3 grid of boxes. On each player's turn they can click on any empty box, which will display their unique token. The winner is the first player to have 3 tokens in a row in any direction (horizontal, vertical, or diagonal). If all boxes are filled but no player has three in a row, then the game is a draw.
 
 ## Contributor
 - [Ron Head](https://github.com/RonLHead)
@@ -15,14 +17,22 @@ This project houses a simple game of tic-tac-toe to be played on a web browser. 
 
 ## Instructions For Use
 
-- Index.html will open a new Tic-Tac-Toe game on the user's browser
+- Index.html will open a new Tic-Tac-Toe game on the user's browser.
 - The new game will display an empty grid of nine boxes (arranged in three rows and three columns). A new game will default to Player One's turn first, which will display under the heading.
-- Player One goes first by clicking one of the empty boxes. Player One's token is a star symbol, which will fill the box the user clicks.
-//add image
+- Player One goes first by clicking one of the empty boxes. Player One's token is a star symbol, which will fill the box that the user clicks.
+
+<p align="center">
+  <img width=400 height=600 src=".assets/tic-tac-toe-p1-token.jpg">
+</p>
+
 - It will be Player Two's turn next (this message will display in the subheading). Just like in the previous step, Player Two can click on any empty box, which will fill it with Player Two's token, a white square.
-//add image
+
+<p align="center">
+  <img width=400 height=600 src=".assets/tic-tac-toe-p2-token.jpg">
+</p>
+
 - This back-and-forth sequence will continue until one of two outcomes occur:
-  1. A player fills three boxes in a row with their respective token. This registers in three possible directions:
+  1. A player fills three boxes in a row with their respective token in three possible directions:
     - Horizontal
     - Vertical
     - Diagonal
@@ -34,8 +44,10 @@ This project houses a simple game of tic-tac-toe to be played on a web browser. 
 </p>
 
 2. In the case of the second outcome, the game pauses and the subheading displays a tie game. No player's score increments. After roughly five seconds, a new game ensues with the next player's turn up first.
-//add image
 
+<p align="center">
+  <img width=400 height=600 src=".assets/tie-tac-toe-tiegame.jpg">
+</p>
 - Each player's score will continue to increment as the game continues. The scores will reset to zero once the user refreshes the browser.
 
 ## Future Additions
