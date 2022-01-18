@@ -27,8 +27,8 @@ function playerClick(e) {
       whichPlayersTurn();
     }
   }
-  tieGameDisplay();
   checkForThreeInARow();
+  tieGameDisplay();
 }
 
 function clearGameGrid() {
@@ -61,13 +61,7 @@ function whichPlayersTurn() {
   }
 }
 
-
-
-
 function playerOneWinsDisplay() {
-  // game.winner = game.player1.id;
-  // game.player1.wins.push(game.player1.token);
-  // game.player1Score = game.player1.wins.length;
   game.whichPlayerWon(game.player1);
   whoseTurn.innerText = "Player One Wins!";
   p1Score.innerText = `Score: ${game.player1Score}`;
@@ -76,9 +70,6 @@ function playerOneWinsDisplay() {
 
 
 function playerTwoWinsDisplay() {
-  // game.winner = game.player2.id;
-  // game.player2.wins.push(game.player2.token);
-  // game.player2Score = game.player2.wins.length;
   game.whichPlayerWon(game.player2);
   whoseTurn.innerText = "Player Two Wins!";
   p2Score.innerText = `Score: ${game.player2Score}`;
