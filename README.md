@@ -12,18 +12,29 @@ This project houses a simple game of tic-tac-toe that can be played on a web bro
 ## [Deploy Link](https://github.com/RonLHead/rlh-tic-tac-toe)
 
 ## Instructions For Use
-![Gif](tic-tac-toe-gameplay.gif)
 
-- If user would like to create an idea, user must enter Title and Body.
-- After Title and Body is entered, user must click Save Ideas. User can only click the Saved Ideas button if there is text in the Title and Body.
-- Ideas will be displayed on individual cards.
-- Users can save as many ideas as they'd like.
-- Users can favorite an idea card by clicking the star image.
-- Once favorited, star image will turn red.
-- If the user would like to delete a card, they can click the X.
-- If the user wants to view only favorited idea cards, they can click the Show Starred Ideas button. View will change to only idea cards with the red star.
-- In this view, the Show Starred Ideas button will change to Show All Ideas button. When the user clicks the Show All Ideas button, the page will display all the idea cards and the button will change back to Show Starred Ideas.
-- The user can filter idea cards by typing in the Search Ideas field.
+- Index.html will open a new Tic-Tac-Toe game on the user's browser
+- The new game will display an empty grid of nine boxes (arranged in three rows and three columns). A new game will default to Player One's turn first, which will be displayed under the heading.
+- Player One goes first by clicking one of the empty boxes. Player One's token is a star symbol, which will fill the box that the user clicks.
+- It will then be Player Two's turn, and this message will displayed in the subheading. Just like in the previous step, Player Two can click on any empty box, which will fill it with Player Two's token, a white square.
+
+- This back-and-forth sequence will continue until one of outcomes occur:
+  1. A player fills three boxes in a row with their respective token. This registers in a possible direction:
+    - Horizontal
+    - Vertical
+    - Diagonal
+  2. All boxes are clicked and filled but no player has three in a row, resulting in a tie game
+
+1. In the case of the first outcome, the game pauses with the winning row will be highlighted on the game grid and the winning player displayed in the subheading. The winning player's score is incremented in their respective section of the game (Player One above the game grid and Player Two below). After roughly five seconds, the tokens are cleared and a new game ensues.
+
+![gameplay-gif](https://raw.githubusercontent.com/RonLHead/rlh-tic-tac-toe/iteration7/readme/assets/tic-tac-toe-gameplay.gif?token=GHSAT0AAAAAABQRS6XOORLTUSONZVCOBD5WYPG6JEA)
+
+2. In the case of the second outcome, the game pauses and the subheading displays a tie game. No player's score increments. After roughly five seconds, a new game ensues.
+
+![tiegame-gif](.assets/tic-tac-toe-tiegame.gif)
+
+- Each player's score will continue to increment as the game continues. The scores will reset to zero once the user refreshes the browser.
+
 ## Future Additions
-- Implement a character countdown in both the Title and Body fields to countdown how many remaining characters a user has left to type in.
-- When in starred view and using filter, implement a feature that only searches through currently starred cards, not all cards.
+- Implement local storage to save and display the scores of previous games.
+- Allow users to select their own unique tokens from a list of tokens.
